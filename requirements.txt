@@ -1,0 +1,5 @@
+yapf
+Qt.py
+pydantic
+pydantic-xml
+lxml
