@@ -74,7 +74,6 @@
   </nutrient>
   <nutrient name="Starch" unit="g" parent="Carbs" usda="209" category="General"/>
   <nutrient name="Sugars" unit="g" parent="Carbs" usda="269" category="General"/>
-  <nutrient name="Added Sugars" unit="g" parent="Carbs" usda="539" category="General"/>
   <nutrient name="Fat" unit="g" dv="65" usda="204" category="General">
 	</nutrient>
   <nutrient name="Alcohol" unit="g" usda="221" category="General"/>
@@ -128,7 +127,7 @@
     <rda min_age="19" max_age="30" gender="female" amount="1000" tul="2500" status="lactating"/>
     <rda min_age="31" max_age="50" gender="female" amount="1000" tul="2500" status="lactating"/>
   </nutrient>
-  <nutrient name="Chromium" unit="&#xB5;g" category="Minerals" sparse="true" track="false">
+  <nutrient name="Chromium" unit="&#xB5;g" usda="310" category="Minerals" sparse="true" track="false">
     <rda min_age="0" max_age="0.5" gender="all" amount="0.2"/>
     <rda min_age="0.5" max_age="1" gender="all" amount="5.5"/>
     <rda min_age="1" max_age="3" gender="all" amount="11"/>
@@ -392,7 +391,7 @@
     <rda min_age="19" max_age="30" gender="female" amount="12" tul="40" status="lactating"/>
     <rda min_age="31" max_age="50" gender="female" amount="12" tul="40" status="lactating"/>
   </nutrient>
-  <nutrient name="Vitamin A" unit="IU" dv="5000" usda="318" category="Vitamins">
+  <nutrient name="Vitamin A" unit="iu" dv="5000" usda="318" category="Vitamins">
     <rda min_age="0" max_age="0.5" gender="all" amount="1333" tul="2000"/>
     <rda min_age="0.5" max_age="1" gender="all" amount="1666" tul="2000"/>
     <rda min_age="1" max_age="3" gender="all" amount="1000" tul="2000"/>
@@ -614,7 +613,7 @@
     <rda min_age="19" max_age="30" gender="female" amount="120" tul="2000" status="lactating"/>
     <rda min_age="31" max_age="50" gender="female" amount="120" tul="2000" status="lactating"/>
   </nutrient>
-  <nutrient name="Vitamin D" unit="IU" dv="400" usda="324" category="Vitamins">
+  <nutrient name="Vitamin D" unit="iu" dv="400" usda="324" category="Vitamins">
     <rda min_age="0" max_age="0.5" gender="all" amount="200" tul="1000"/>
     <rda min_age="0.5" max_age="1" gender="all" amount="200" tul="1000"/>
     <rda min_age="1" max_age="3" gender="all" amount="200" tul="2000"/>
@@ -689,7 +688,7 @@
     <rda min_age="19" max_age="30" gender="female" amount="90" status="lactating"/>
     <rda min_age="31" max_age="50" gender="female" amount="90" status="lactating"/>
   </nutrient>
-  <nutrient name="Biotin" unit="&#xB5;g" dv="300" category="Vitamins" sparse="true" track="false">
+  <nutrient name="Biotin" unit="&#xB5;g" usda="416" dv="300" category="Vitamins" sparse="true" track="false">
     <rda min_age="0" max_age="0.5" gender="all" amount="5"/>
     <rda min_age="0.5" max_age="1" gender="all" amount="6"/>
     <rda min_age="1" max_age="3" gender="all" amount="8"/>
@@ -810,4 +809,5 @@
   <nutrient name="TRP" unit="g" usda="501" category="Amino Acids"/>
   <nutrient name="TYR" unit="g" usda="509" category="Amino Acids"/>
   <nutrient name="VAL" unit="g" usda="510" category="Amino Acids"/>
+  <nutrient name="Added Sugars" unit="g" parent="Carbs" usda="539" category="General"/>
 </nutrients>

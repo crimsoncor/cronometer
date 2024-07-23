@@ -8,6 +8,7 @@ from pydantic_xml import BaseXmlModel
 from pydantic_xml import element
 from typing import Optional
 
+from cronometer.foods.food import FoodNutrient
 import cronometer.foods.measure as measure
 
 
@@ -36,11 +37,6 @@ def loadIndex(userDir: Path) -> list[FoodIndexEntry]:
     except FileNotFoundError:
         pass
     return toRet
-
-
-class FoodNutrient(BaseXmlModel, tag="nutrient"):
-    name: str = attr()
-    amount: float = attr()
 
 
 class UserFood(BaseXmlModel, tag="food"):

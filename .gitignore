@@ -7,3 +7,9 @@
 /lib/docs.jar
 CRONoMeter.app
 /tags
+/food/*
+.idea/
+.vscode/
+*.pyc
+__pycache__
+ProfileOutput

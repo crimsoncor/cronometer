@@ -1,0 +1,6926 @@
+{
+  "nutrients": [
+    {
+      "name": "Energy",
+      "unit": "kcal",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        208.0
+      ],
+      "usdaIds": [
+        1008
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 0
+    },
+    {
+      "name": "Protein",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        203.0
+      ],
+      "usdaIds": [
+        1003
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 9.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 19.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 34.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 52.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 56.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 56.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 56.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 56.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 34.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 46.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 46.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 46.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 46.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 46.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 71.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 71.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 71.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 71.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 71.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 71.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 1
+    },
+    {
+      "name": "Carbs",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        205.0
+      ],
+      "usdaIds": [
+        1005
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 60.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 95.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 175.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 175.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 175.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 210.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 210.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 210.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 2
+    },
+    {
+      "name": "Fiber",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        291.0
+      ],
+      "usdaIds": [
+        1079
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 19.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 31.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 38.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 38.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 38.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 26.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 26.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 21.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 21.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 28.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 28.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 28.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 29.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 29.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 29.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 3
+    },
+    {
+      "name": "Starch",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        209.0
+      ],
+      "usdaIds": [
+        1009
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 4
+    },
+    {
+      "name": "Sugars",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        269.0
+      ],
+      "usdaIds": [
+        2000
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 5
+    },
+    {
+      "name": "Fat",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        204.0
+      ],
+      "usdaIds": [
+        1004
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 6
+    },
+    {
+      "name": "Alcohol",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        221.0
+      ],
+      "usdaIds": [
+        1018
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 7
+    },
+    {
+      "name": "Caffeine",
+      "unit": "mg",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        262.0
+      ],
+      "usdaIds": [
+        1057
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 8
+    },
+    {
+      "name": "Water",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        255.0
+      ],
+      "usdaIds": [
+        1051
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 800.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2400.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3300.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2100.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2300.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 3000.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 3000.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 3000.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 3800.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 3800.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 3800.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 9
+    },
+    {
+      "name": "Ash",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        207.0
+      ],
+      "usdaIds": [
+        1007
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 10
+    },
+    {
+      "name": "Calcium",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        301.0
+      ],
+      "usdaIds": [
+        1087
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 210.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 270.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 500.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 800.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1300.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1300.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1000.0,
+          "TUL": 2500.0
+        }
+      ],
+      "cronIndex": 11
+    },
+    {
+      "name": "Chromium",
+      "unit": "µg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        310.0
+      ],
+      "usdaIds": [
+        1096
+      ],
+      "sparse": true,
+      "track": false,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 5.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 35.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 35.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 35.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 21.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 24.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 20.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 20.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 29.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 44.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 45.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 45.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 12
+    },
+    {
+      "name": "Copper",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        312.0
+      ],
+      "usdaIds": [
+        1098
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.22,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.34,
+          "TUL": 1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.44,
+          "TUL": 3.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.7,
+          "TUL": 5.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.89,
+          "TUL": 8.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.7,
+          "TUL": 5.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.89,
+          "TUL": 8.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.0,
+          "TUL": 8.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.0,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.0,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.3,
+          "TUL": 8.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.3,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.3,
+          "TUL": 10.0
+        }
+      ],
+      "cronIndex": 13
+    },
+    {
+      "name": "Fluoride",
+      "unit": "µg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        313.0
+      ],
+      "usdaIds": [
+        1099
+      ],
+      "sparse": true,
+      "track": false,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 10.0,
+          "TUL": 700.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 500.0,
+          "TUL": 900.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 1300.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 2200.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        }
+      ],
+      "cronIndex": 14
+    },
+    {
+      "name": "Iron",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        303.0
+      ],
+      "usdaIds": [
+        1089
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.27,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 7.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 10.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 18.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 18.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 27.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 27.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 27.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 10.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 9.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 9.0,
+          "TUL": 45.0
+        }
+      ],
+      "cronIndex": 15
+    },
+    {
+      "name": "Magnesium",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        304.0
+      ],
+      "usdaIds": [
+        1090
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 80.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 130.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 240.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 410.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 420.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 420.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 420.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 240.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 360.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 310.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 320.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 320.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 320.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 400.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 350.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 360.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 360.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 310.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 320.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 16
+    },
+    {
+      "name": "Manganese",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        315.0
+      ],
+      "usdaIds": [
+        1101
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.003,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": 2.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1.5,
+          "TUL": 3.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.9,
+          "TUL": 6.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.2,
+          "TUL": 9.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.3,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.3,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.3,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.3,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": 6.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": 9.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2.0,
+          "TUL": 9.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2.0,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2.0,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.6,
+          "TUL": 9.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.6,
+          "TUL": 11.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.6,
+          "TUL": 11.0
+        }
+      ],
+      "cronIndex": 17
+    },
+    {
+      "name": "Phosphorus",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        305.0
+      ],
+      "usdaIds": [
+        1091
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 100.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 275.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 460.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 500.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1250.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1250.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1250.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1250.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1250.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 700.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 700.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1250.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 700.0,
+          "TUL": 4000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 700.0,
+          "TUL": 4000.0
+        }
+      ],
+      "cronIndex": 18
+    },
+    {
+      "name": "Potassium",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        306.0
+      ],
+      "usdaIds": [
+        1092
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 3800.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4500.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4500.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 4700.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 5100.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 5100.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 5100.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 19
+    },
+    {
+      "name": "Selenium",
+      "unit": "µg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        317.0
+      ],
+      "usdaIds": [
+        1103
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 45.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 20.0,
+          "TUL": 60.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 20.0,
+          "TUL": 90.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": 150.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 40.0,
+          "TUL": 280.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 40.0,
+          "TUL": 280.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 60.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 60.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 60.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 70.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 70.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 70.0,
+          "TUL": 400.0
+        }
+      ],
+      "cronIndex": 20
+    },
+    {
+      "name": "Sodium",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        307.0
+      ],
+      "usdaIds": [
+        1093
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 120.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 370.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 1500.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 1900.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2200.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2200.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1300.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1200.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1500.0,
+          "TUL": 2300.0
+        }
+      ],
+      "cronIndex": 21
+    },
+    {
+      "name": "Zinc",
+      "unit": "mg",
+      "category": "Minerals",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        309.0
+      ],
+      "usdaIds": [
+        1095
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 2.0,
+          "TUL": 4.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 3.0,
+          "TUL": 5.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 3.0,
+          "TUL": 7.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": 12.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 23.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 34.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 23.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 9.0,
+          "TUL": 34.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 12.0,
+          "TUL": 34.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 11.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 13.0,
+          "TUL": 34.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 12.0,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 12.0,
+          "TUL": 40.0
+        }
+      ],
+      "cronIndex": 22
+    },
+    {
+      "name": "Vitamin A",
+      "unit": "iu",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        318.0
+      ],
+      "usdaIds": [
+        1104
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 1333.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1666.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1000.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1333.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2000.0,
+          "TUL": 5667.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 9333.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 3000.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2000.0,
+          "TUL": 5667.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2333.0,
+          "TUL": 9333.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2333.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2333.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2333.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2333.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2500.0,
+          "TUL": 9333.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2567.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2567.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 4000.0,
+          "TUL": 9333.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 4333.0,
+          "TUL": 10000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 4333.0,
+          "TUL": 10000.0
+        }
+      ],
+      "cronIndex": 23
+    },
+    {
+      "name": "Retinol",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        319.0
+      ],
+      "usdaIds": [
+        1105
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 24
+    },
+    {
+      "name": "Alpha-carotene",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        322.0
+      ],
+      "usdaIds": [
+        1108
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 25
+    },
+    {
+      "name": "Beta-carotene",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        321.0
+      ],
+      "usdaIds": [
+        1107
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 26
+    },
+    {
+      "name": "Beta-cryptoxanthin",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        334.0
+      ],
+      "usdaIds": [
+        1120
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 27
+    },
+    {
+      "name": "Lycopene",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        337.0
+      ],
+      "usdaIds": [
+        1122
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 28
+    },
+    {
+      "name": "Lutein+Zeaxanthin",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        338.0
+      ],
+      "usdaIds": [
+        1123
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 29
+    },
+    {
+      "name": "Folate",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        417.0
+      ],
+      "usdaIds": [
+        1177
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 65.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 80.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 150.0,
+          "TUL": 300.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 300.0,
+          "TUL": 600.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 300.0,
+          "TUL": 600.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 600.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 600.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 600.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 500.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 500.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 500.0,
+          "TUL": 1000.0
+        }
+      ],
+      "cronIndex": 30
+    },
+    {
+      "name": "B1 (Thiamine)",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        404.0
+      ],
+      "usdaIds": [
+        1165
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.4,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 31
+    },
+    {
+      "name": "B2 (Riboflavin)",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        405.0
+      ],
+      "usdaIds": [
+        1166
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.6,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 32
+    },
+    {
+      "name": "B3 (Niacin)",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        406.0
+      ],
+      "usdaIds": [
+        1167
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 2.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 4.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 6.0,
+          "TUL": 10.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": 15.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": 20.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 16.0,
+          "TUL": 30.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 16.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 16.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 16.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 16.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": 20.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": 30.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 18.0,
+          "TUL": 30.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 18.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 18.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 17.0,
+          "TUL": 30.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 17.0,
+          "TUL": 35.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 17.0,
+          "TUL": 35.0
+        }
+      ],
+      "cronIndex": 33
+    },
+    {
+      "name": "B5 (Pantothenic Acid)",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        410.0
+      ],
+      "usdaIds": [
+        1170
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 1.7,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 2.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 3.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 4.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 4.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 6.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 6.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 6.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 7.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 7.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 7.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 34
+    },
+    {
+      "name": "B6 (Pyridoxine)",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        415.0
+      ],
+      "usdaIds": [
+        1175
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.5,
+          "TUL": 30.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.6,
+          "TUL": 40.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.0,
+          "TUL": 60.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": 80.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.7,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.7,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.0,
+          "TUL": 60.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": 80.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.3,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.5,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.5,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.9,
+          "TUL": 80.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.9,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.9,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.0,
+          "TUL": 80.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.0,
+          "TUL": 100.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.0,
+          "TUL": 100.0
+        }
+      ],
+      "cronIndex": 35
+    },
+    {
+      "name": "B12 (Cyanocobalamin)",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        418.0
+      ],
+      "usdaIds": [
+        1178
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.8,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 2.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 2.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.8,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.8,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 2.8,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 36
+    },
+    {
+      "name": "Vitamin C",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        401.0
+      ],
+      "usdaIds": [
+        1162
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 40.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 50.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 400.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": 650.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 45.0,
+          "TUL": 1200.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": 1800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 45.0,
+          "TUL": 1200.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 65.0,
+          "TUL": 1800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 80.0,
+          "TUL": 1800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 85.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 85.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 115.0,
+          "TUL": 1800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 120.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 120.0,
+          "TUL": 2000.0
+        }
+      ],
+      "cronIndex": 37
+    },
+    {
+      "name": "Vitamin D",
+      "unit": "iu",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        324.0
+      ],
+      "usdaIds": [
+        1110
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 600.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 600.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 200.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 200.0,
+          "TUL": 2000.0
+        }
+      ],
+      "cronIndex": 38
+    },
+    {
+      "name": "Vitamin E",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        323.0
+      ],
+      "usdaIds": [
+        1109
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 4.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 6.0,
+          "TUL": 200.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 7.0,
+          "TUL": 300.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 600.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 15.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 15.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 19.0,
+          "TUL": 800.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 19.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 19.0,
+          "TUL": 1000.0
+        }
+      ],
+      "cronIndex": 39
+    },
+    {
+      "name": "Beta Tocopherol",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        341.0
+      ],
+      "usdaIds": [
+        1125
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 40
+    },
+    {
+      "name": "Delta Tocopherol",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        343.0
+      ],
+      "usdaIds": [
+        1127
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 41
+    },
+    {
+      "name": "Gamma Tocopherol",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        342.0
+      ],
+      "usdaIds": [
+        1126
+      ],
+      "sparse": false,
+      "track": false,
+      "dris": [],
+      "cronIndex": 42
+    },
+    {
+      "name": "Vitamin K",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        430.0
+      ],
+      "usdaIds": [
+        1185
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 2.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 2.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 55.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 60.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 120.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 120.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 120.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 120.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 60.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 75.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 75.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 75.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 90.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 90.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 43
+    },
+    {
+      "name": "Biotin",
+      "unit": "µg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        416.0
+      ],
+      "usdaIds": [
+        1176
+      ],
+      "sparse": true,
+      "track": false,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 5.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 6.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 8.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 20.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 20.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 25.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 30.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 35.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 35.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 35.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 44
+    },
+    {
+      "name": "Choline",
+      "unit": "mg",
+      "category": "Vitamins",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        421.0
+      ],
+      "usdaIds": [
+        1180
+      ],
+      "sparse": true,
+      "track": false,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 125.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 150.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 200.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 250.0,
+          "TUL": 1000.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 375.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 550.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 550.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 550.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 550.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 550.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 375.0,
+          "TUL": 2000.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 400.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 425.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 425.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 425.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 425.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 450.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 450.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 450.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 550.0,
+          "TUL": 3000.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 550.0,
+          "TUL": 3500.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 550.0,
+          "TUL": 3500.0
+        }
+      ],
+      "cronIndex": 45
+    },
+    {
+      "name": "Saturated",
+      "unit": "g",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        606.0
+      ],
+      "usdaIds": [
+        1258
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 46
+    },
+    {
+      "name": "Monounsaturated",
+      "unit": "g",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        645.0
+      ],
+      "usdaIds": [
+        1292
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 47
+    },
+    {
+      "name": "Polyunsaturated",
+      "unit": "g",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        646.0
+      ],
+      "usdaIds": [
+        1293
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 48
+    },
+    {
+      "name": "Omega-3",
+      "unit": "g",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        621.0,
+        629.0,
+        631.0,
+        851.0,
+        852.0
+      ],
+      "usdaIds": [
+        1272,
+        1278,
+        1280,
+        1404,
+        1405
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.5,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.7,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 0.9,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.2,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 1.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 1.1,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 1.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.3,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 1.3,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 49
+    },
+    {
+      "name": "Omega-6",
+      "unit": "g",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        672.0,
+        675.0,
+        685.0,
+        853.0,
+        855.0
+      ],
+      "usdaIds": [
+        1313,
+        1316,
+        1321,
+        1406,
+        1408
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [
+        {
+          "min_age": 0.0,
+          "max_age": 0.5,
+          "gender": "all",
+          "status": null,
+          "RDA": 4.4,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 0.5,
+          "max_age": 1.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 4.6,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 1.0,
+          "max_age": 3.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 7.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 4.0,
+          "max_age": 8.0,
+          "gender": "all",
+          "status": null,
+          "RDA": 10.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 16.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 17.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 17.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "male",
+          "status": null,
+          "RDA": 14.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 9.0,
+          "max_age": 13.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 10.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 51.0,
+          "max_age": 70.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 12.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 71.0,
+          "max_age": 10000.0,
+          "gender": "female",
+          "status": null,
+          "RDA": 11.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 13.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 13.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "pregnant",
+          "RDA": 13.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 14.0,
+          "max_age": 18.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 13.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 19.0,
+          "max_age": 30.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 13.0,
+          "TUL": -1.0
+        },
+        {
+          "min_age": 31.0,
+          "max_age": 50.0,
+          "gender": "female",
+          "status": "lactating",
+          "RDA": 13.0,
+          "TUL": -1.0
+        }
+      ],
+      "cronIndex": 50
+    },
+    {
+      "name": "Trans-Fats",
+      "unit": "g",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        605.0
+      ],
+      "usdaIds": [
+        1257
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 51
+    },
+    {
+      "name": "Cholesterol",
+      "unit": "mg",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        601.0
+      ],
+      "usdaIds": [
+        1253
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 52
+    },
+    {
+      "name": "Phytosterol",
+      "unit": "mg",
+      "category": "Lipids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        636.0
+      ],
+      "usdaIds": [
+        1283
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 53
+    },
+    {
+      "name": "ALA",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        513.0
+      ],
+      "usdaIds": [
+        1222
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 54
+    },
+    {
+      "name": "ARG",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        511.0
+      ],
+      "usdaIds": [
+        1220
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 55
+    },
+    {
+      "name": "ASP",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        514.0
+      ],
+      "usdaIds": [
+        1223
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 56
+    },
+    {
+      "name": "CYS",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        507.0
+      ],
+      "usdaIds": [
+        1216
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 57
+    },
+    {
+      "name": "GLU",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        515.0
+      ],
+      "usdaIds": [
+        1224
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 58
+    },
+    {
+      "name": "GLY",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        516.0
+      ],
+      "usdaIds": [
+        1225
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 59
+    },
+    {
+      "name": "HIS",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        512.0
+      ],
+      "usdaIds": [
+        1221
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 60
+    },
+    {
+      "name": "HYP",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        521.0
+      ],
+      "usdaIds": [
+        1228
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 61
+    },
+    {
+      "name": "ILE",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        503.0
+      ],
+      "usdaIds": [
+        1212
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 62
+    },
+    {
+      "name": "LEU",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        504.0
+      ],
+      "usdaIds": [
+        1213
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 63
+    },
+    {
+      "name": "LYS",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        505.0
+      ],
+      "usdaIds": [
+        1214
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 64
+    },
+    {
+      "name": "MET",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        506.0
+      ],
+      "usdaIds": [
+        1215
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 65
+    },
+    {
+      "name": "PHE",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        508.0
+      ],
+      "usdaIds": [
+        1217
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 66
+    },
+    {
+      "name": "PRO",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        517.0
+      ],
+      "usdaIds": [
+        1226
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 67
+    },
+    {
+      "name": "SER",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        518.0
+      ],
+      "usdaIds": [
+        1227
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 68
+    },
+    {
+      "name": "THR",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        502.0
+      ],
+      "usdaIds": [
+        1211
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 69
+    },
+    {
+      "name": "TRP",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        501.0
+      ],
+      "usdaIds": [
+        1210
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 70
+    },
+    {
+      "name": "TYR",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        509.0
+      ],
+      "usdaIds": [
+        1218
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 71
+    },
+    {
+      "name": "VAL",
+      "unit": "g",
+      "category": "Amino Acids",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        510.0
+      ],
+      "usdaIds": [
+        1219
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 72
+    },
+    {
+      "name": "Added Sugars",
+      "unit": "g",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        539.0
+      ],
+      "usdaIds": [
+        1235
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 73
+    }
+  ]
+}
