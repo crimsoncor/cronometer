@@ -1,13 +1,8 @@
 import os
 import zipfile
 
-from enum import Enum
 from pathlib import Path
-from typing import Optional
 from typing import Union
-
-from pydantic import BaseModel
-from pydantic import ConfigDict
 
 from cronometer import DATA_DIR
 from cronometer.foods.food import Food
@@ -15,48 +10,12 @@ from cronometer.foods.food import FoodProxy
 from cronometer.foods.food import FoodSource
 from cronometer.util import toolbox
 
-THIS_DIR = Path(os.path.dirname(__file__))
+from .helpers import readIndex
 
 DEPRECATED_ZIP = os.path.join(DATA_DIR, "deprecated.zip")
 
 
-class FoodType(Enum):
-    """
-    The type of food from the USDA database.
-
-    The Java version of cronometer only used the LEGACY foods.
-    Deprecated foods are legacy foods that are no longer part of the
-    data set. The Python cronometer provides a zip file that contains
-    these foods so that old files will still load.
-    """
-    BRANDED = "branded_food"
-    EXPERIMENTAL = "experimental_food"
-    LEGACY = "sr_legacy_food"
-    SAMPLE = "sample_food"
-    MARKET_ACQUISITION = "market_acquistion"
-    SUB_SAMPLE = "sub_sample_food"
-    FOUNDATION = "foundation_food"
-    AGRICULTURAL_ACQUISITION = "agricultural_acquisition"
-    SURVEY = "survey_fndds_food"
-    DEPRECATED = "deprecated"
-
-
-class UsdaFood(Food):
-    """
-    A food from the USDA data that includes a foodType field indicating
-    the source of the data.
-    """
-    foodType: FoodType
-
-
-class UsdaFoodProxy(FoodProxy):
-    """
-    A food proxy for the USDA foods.
-    """
-    foodType: FoodType
-
-
-def _getFoodFromZip(zipPath: Union[str, Path], foodId: str) -> UsdaFood:
+def _getFoodFromZip(zipPath: Union[str, Path], foodId: str) -> Food:
     """
     Load a food from a zip file using the given id.
 
@@ -65,31 +24,45 @@ def _getFoodFromZip(zipPath: Union[str, Path], foodId: str) -> UsdaFood:
     foodPath = f"{foodId}.json"
     with zipfile.ZipFile(zipPath, "r") as archive:
         with archive.open(foodPath, "r") as f:
-            return UsdaFood.model_validate_json(f.read())
+            return Food.model_validate_json(f.read())
 
 
-def getUsdaProxies(foodType: FoodType) -> list[UsdaFoodProxy]:
+def getUsdaProxies(foodType: FoodSource) -> list[FoodProxy]:
     """
     Get the food proxies for one of the USDA food types.
     """
     dataDir = toolbox.getUserDataDir()
     indexFile = os.path.join(dataDir, f"{foodType.value}.index")
-    return __readIndex(indexFile, foodType)
+    return readIndex(indexFile, foodType)
 
 
-def getUsdaFood(proxy: UsdaFoodProxy) -> UsdaFood:
+def getLegacyIdMapping() -> dict[int, int]:
+    """
+    Get the mapping from legacy Id to new Id for all the foods in the
+    LEGACY FoodSource.
+
+    This is needed to convert legacy data to work in the new python
+    cronometer.
+
+    The key is the legacy id and the value is the new USDA id.
+    """
+    proxies = getUsdaProxies(FoodSource.LEGACY)
+    return {p.legacyUID : p.sourceUID for p in proxies if p.legacyUID}
+
+
+def getUsdaFood(proxy: FoodProxy) -> Food:
     """
     Get the food identified by the given proxy.
     """
-    if proxy.foodType == FoodType.DEPRECATED:
+    if proxy.foodSource == FoodSource.DEPRECATED:
         return getDeprecatedFood(proxy.sourceUID)
     else:
         dataDir = toolbox.getUserDataDir()
-        zipFile = os.path.join(dataDir, f"{proxy.foodType.value}.zip")
+        zipFile = os.path.join(dataDir, f"{proxy.foodSource.value}.zip")
         return _getFoodFromZip(zipFile, str(proxy.sourceUID))
 
 
-def getDeprecatedFood(uid: int) -> UsdaFood:
+def getDeprecatedFood(uid: int) -> Food:
     """
     Get a deprecated food from the data store that ships with
     cronometer.
@@ -98,28 +71,12 @@ def getDeprecatedFood(uid: int) -> UsdaFood:
     return _getFoodFromZip(DEPRECATED_ZIP, foodId)
 
 
-def getDeprecatedProxies() -> list[UsdaFoodProxy]:
+def getDeprecatedProxies() -> list[FoodProxy]:
     """
     Get the food proxies for the deprecated USDA legacy foods.
 
     These foods are shipped with cronometer (since they are no longer
     available in the USDA dataset but may be used in legacy data files.)
     """
-    return __readIndex(os.path.join(DATA_DIR, "deprecated.index"),
-                       FoodType.DEPRECATED)
-
-
-def __readIndex(path: Union[str, Path], foodType: FoodType) -> list[UsdaFoodProxy]:
-    """
-    Read an index file and return the proxies from it.
-    """
-    toRet = list[UsdaFoodProxy]()
-    with open (path, "r") as f:
-        for line in f.readlines():
-            uid, name = line.split("|", 1)
-            proxy = UsdaFoodProxy(name=name,
-                                  sourceUID=int(uid),
-                                  foodSource=FoodSource.USDA,
-                                  foodType=foodType)
-            toRet.append(proxy)
-    return toRet
+    return readIndex(os.path.join(DATA_DIR, "deprecated.index"),
+                     FoodSource.DEPRECATED)

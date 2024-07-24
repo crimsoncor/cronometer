@@ -41,13 +41,13 @@ def getUserDirectory() -> Path:
     return home
 
 
-def getUserAppDirectory(appName: str=APP_NAME) -> Path:
+def getUserAppDirectory() -> Path:
     """
     Get the cronometer directory.
     """
     if operatingSystem() in (OperatingSystem.WINDOWS, OperatingSystem.MAC):
-        return getUserDirectory() / appName
-    return getUserDirectory() / f".{appName}"
+        return getUserDirectory() / APP_NAME
+    return getUserDirectory() / f".{APP_NAME}"
 
 
 def getUserDataDir() -> Path:
@@ -55,3 +55,10 @@ def getUserDataDir() -> Path:
     Get the cronometer sub-directory where generated usda data is stored.
     """
     return getUserAppDirectory() / "data"
+
+
+def getUserProfileDir(username: str) -> Path:
+    """
+    Get the profile directory for the given user name
+    """
+    return getUserAppDirectory() / username

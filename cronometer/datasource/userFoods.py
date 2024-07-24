@@ -1,16 +1,18 @@
-
 from datetime import datetime
-from lxml import etree
+from enum import Enum
 from pathlib import Path
-from pydantic import BaseModel
-from pydantic_xml import attr
-from pydantic_xml import BaseXmlModel
-from pydantic_xml import element
 from typing import Optional
 
-from cronometer.foods.food import FoodNutrient
+from lxml import etree
+from pydantic import BaseModel
+from pydantic_xml import BaseXmlModel
+from pydantic_xml import attr
+from pydantic_xml import element
+
 import cronometer.foods.measure as measure
 
+from cronometer.foods.food import FoodNutrient
+from cronometer.foods.food import FoodSource
 
 FOOD_INDEX = "foods.index"
 
@@ -39,9 +41,17 @@ def loadIndex(userDir: Path) -> list[FoodIndexEntry]:
     return toRet
 
 
+class EntryType(Enum):
+    FOOD = "food"
+    RECIPE = "recipe"
+
+
 class UserFood(BaseXmlModel, tag="food"):
     name: str = attr()
     uid: str = attr()
+
+    foodSource: FoodSource = attr(default=FoodSource.USER)
+    entryType: EntryType = attr(default=EntryType.FOOD)
 
     pCF: float = attr(tag="pcf", default=4.0)
     cCF: float = attr(tag="ccf", default=4.0)
@@ -58,14 +68,19 @@ class UserFood(BaseXmlModel, tag="food"):
             self.measures.insert(0, measure.GRAM)
 
 
+
 class RecipeServing(BaseXmlModel, tag="serving"):
-    date: datetime = attr()
+    date: datetime = attr(default_factory=datetime.now,
+                          exclude=True)
     source: str = attr()
     grams: float = attr()
     food: int = attr()
+    meal: int = attr(default=0, exclude=True)
+    measure: Optional[str] = attr(default=None)
 
 
 class UserRecipe(UserFood, tag="recipe"):
+    entryType: EntryType = attr(default=EntryType.RECIPE)
     servings: list[RecipeServing] = element(tag="serving",
                                             default_factory=list)
 

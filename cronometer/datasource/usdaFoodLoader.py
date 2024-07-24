@@ -1,3 +1,20 @@
+"""
+Utilities for loading and converting the CSV files from the USDA into
+data that cronometer can read.
+
+Most of the stuff in this file are helpers which can be used separately if
+needed, but a majority of the functionality is rolled up in the
+convertUsdaFoods function which will convert one type of USDA data.
+
+Usage is something like:
+
+from cronometer.foods import nutritionInfo
+from cronometer.datasource import usdaFoodLoader
+
+foodDir = # Full Path to the download CSV files
+nutInfo = nutritionInfo.loadNutrientInfo()
+usdaFoodLoader.convertUsdaFoods(foodDir, nutInfo, FoodSource.SURVEY)
+"""
 import contextlib
 import csv
 import os
@@ -14,8 +31,6 @@ from pydantic import ConfigDict
 
 import cronometer.util.toolbox as toolbox
 
-from cronometer.datasource.usdaFoods import FoodType
-from cronometer.datasource.usdaFoods import UsdaFood
 from cronometer.foods.food import Food
 from cronometer.foods.food import FoodNutrient
 from cronometer.foods.food import FoodSource
@@ -35,6 +50,8 @@ NUTRIENT_CSV = "nutrient.csv"
 MEASURE_CSV = "measure_unit.csv"
 PORTION_CSV = "food_portion.csv"
 FOOD_NUTRIENT_CSV = "food_nutrient.csv"
+CONVERSION_CSV = "food_calorie_conversion_factor.csv"
+FOOD_CONVERSION_CSV = "food_nutrient_conversion_factor.csv"
 
 
 @contextlib.contextmanager
@@ -55,7 +72,7 @@ class CsvFood(BaseModel):
     """
     model_config = ConfigDict(frozen=True)
 
-    foodType: FoodType
+    foodSource: FoodSource
     fid: int
     legacyId: Optional[int] = None
     name: str
@@ -118,7 +135,7 @@ class CsvFoodNutrient(namedtuple("CsvFoodNutrient", ["fid", "nid", "amount"])):
     This data is all nutrient per 100g of the food.
 
     This is using a namedtuple vs pydantic because the initialization speed
-    penalty from pedantic is substantion when reading 26 million nutrient
+    penalty from pedantic is substantial when reading 26 million nutrient
     records from a file.
 
     fid: int
@@ -129,6 +146,17 @@ class CsvFoodNutrient(namedtuple("CsvFoodNutrient", ["fid", "nid", "amount"])):
       The nutrient amount per 100g of the food
     """
     __slots__ = ()
+
+
+class CsvConversion(BaseModel):
+    """
+    The calorie conversion values read from the
+    food_calorie_conversion_factor.csv file.
+    """
+    cid: int
+    protein: Optional[float]
+    fat: Optional[float]
+    carb: Optional[float]
 
 
 def loadLegacyIds(csvDir: Union[str, Path]) -> dict[int, int]:
@@ -201,6 +229,62 @@ def generateNutrientInfo(csvData: list[CsvNutrient],
     return NutrientInfos(nutrients=nutList)
 
 
+def loadCalorieConversion(csvDir: Union[str, Path]) -> list[CsvConversion]:
+    """
+    Load all the calorie conversions found in food_calorie_conversion_factor.csv
+    """
+    toRet = list[CsvConversion]()
+    csvFile = os.path.join(csvDir, CONVERSION_CSV)
+    with _openCSV(csvFile) as reader:
+        for row in reader:
+            cid = int(row[0])
+            protein = float(row[1]) if row[1] else None
+            fat = float(row[2]) if row[2] else None
+            carb = float(row[3]) if row[3] else None
+            conv = CsvConversion(cid=cid, protein=protein, fat=fat, carb=carb)
+            toRet.append(conv)
+    return toRet
+
+
+def loadFoodConversions(csvDir: Union[str, Path]) -> dict[int, int]:
+    """
+    Load all the mappings of food ids to conversion ids from the
+    food_nutrient_conversion_factor.csv file.
+
+    The return value is a dict where the key is the food id and the
+    value in the conversion id (the id in the CsvConversion object).
+    """
+    toRet = dict[int, int]()
+    csvFile = os.path.join(csvDir, FOOD_CONVERSION_CSV)
+    with _openCSV(csvFile) as reader:
+        for row in reader:
+            cid = int(row[0])
+            fid = int(row[1])
+            toRet[fid] = cid
+    return toRet
+
+
+def generateFoodConversion(csvDir: Union[str, Path]) -> dict[int, CsvConversion]:
+    """
+    Generate a mapping of food id to the calorie conversion values that
+    should be used for the food.
+
+    This will be a sparse dictionary because most foods do not seem to
+    have this value
+    """
+    toRet = dict[int, CsvConversion]()
+    calConversions = loadCalorieConversion(csvDir)
+    foodConversions = loadFoodConversions(csvDir)
+
+    calConvMap = {e.cid : e for e in calConversions}
+    for fid, cid in foodConversions.items():
+        calConv = calConvMap.get(cid)
+        if calConv:
+            toRet[fid] = calConv
+
+    return toRet
+
+
 def loadFoods(csvDir: Union[str, Path],
               legacyIdMap: dict[int, int]) -> list[CsvFood]:
     """
@@ -215,10 +299,10 @@ def loadFoods(csvDir: Union[str, Path],
     with _openCSV(csvFile) as reader:
         for row in reader:
             fid = int(row[0])
-            ftype = FoodType(row[1])
+            fsrc = FoodSource(row[1])
             name = row[2]
-            legacyId = None if ftype != FoodType.LEGACY else legacyIdMap[fid]
-            food = CsvFood(foodType=ftype,
+            legacyId = None if fsrc != FoodSource.LEGACY else legacyIdMap[fid]
+            food = CsvFood(foodSource=fsrc,
                            fid=fid,
                            name=name,
                            legacyId=legacyId)
@@ -317,14 +401,19 @@ def loadFoodNutrients(csvDir: Union[str, Path],
             fid = int(row[1])
             if filterIds is not None and fid not in filterIds:
                 continue
+
             nid = int(row[2])
+            if nutrientIds is not None and nid not in nutrientIds:
+                continue
+
             amount = float(row[3])
             fn = CsvFoodNutrient(fid=fid, nid=nid, amount=amount)
             toRet.append(fn)
     return toRet
 
 
-def loadOneFoodNutrients(csvDir: Union[str, Path], tgtFid: int) -> list[CsvFoodNutrient]:
+def loadOneFoodNutrients(csvDir: Union[str, Path],
+                         tgtFid: int) -> list[CsvFoodNutrient]:
     """
     Load all the food nutrient values from the food_nutrient.csv file
     but only return ones that match the given fid.
@@ -344,13 +433,14 @@ def loadOneFoodNutrients(csvDir: Union[str, Path], tgtFid: int) -> list[CsvFoodN
 
 def generateFoods(csvFoods: list[CsvFood],
                   measures: dict[int, list[Measure]],
+                  conversion: dict[int, CsvConversion],
                   nutrientInfos: NutrientInfos,
-                  nutrients: list[CsvFoodNutrient]) -> list[UsdaFood]:
+                  nutrients: list[CsvFoodNutrient]) -> list[Food]:
     """
     Construct the final cronometer Food objects from the information
     loaded from the USDA Csv Files.
     """
-    toRet = list[UsdaFood]()
+    toRet = list[Food]()
 
     for csvFood in csvFoods:
         foodNuts = [n for n in nutrients if n.fid == csvFood.fid]
@@ -370,14 +460,18 @@ def generateFoods(csvFoods: list[CsvFood],
         m = measures.get(csvFood.fid) or list()
         if GRAM not in m:
             m.insert(0, GRAM)
-        food = UsdaFood(name=csvFood.name,
-                        measures=m,
-                        nutrients=nutList,
-                        foodSource=FoodSource.USDA,
-                        foodType=csvFood.foodType,
-                        sourceUID=csvFood.fid,
-                        legacyUID=csvFood.legacyId,
-                        comments=[])
+        c = conversion.get(csvFood.fid)
+        food = Food(name=csvFood.name,
+                    measures=m,
+                    nutrients=nutList,
+                    foodSource=csvFood.foodSource,
+                    uid=csvFood.fid,
+                    legacyUID=csvFood.legacyId,
+                    # If None, pydantic will use default value
+                    pCF=c.protein if c else None,
+                    lCF=c.fat if c else None,
+                    cCF=c.carb if c else None,
+                    comments=[])
         if _fixOmegaFats(food, foodNuts):
             food.nutrients.sort(key=lambda x: nutrientInfos.indexOfName(x.name))
         toRet.append(food)
@@ -393,14 +487,14 @@ def writeFoodsToZip(foods: list[Food], zipPath: Union[str, Path]):
                          compression=zipfile.ZIP_DEFLATED,
                          compresslevel=9) as archive:
         for food in foods:
-            fileName = f"{food.sourceUID}.json"
+            fileName = f"{food.uid}.json"
             with archive.open(fileName, "w") as f:
                 f.write(food.model_dump_json(indent=2).encode())
 
 
 def convertUsdaFoods(csvDir: Union[str, Path],
                      nutrientInfos: NutrientInfos,
-                     foodType: FoodType):
+                     foodSource: FoodSource):
     """
     Load the CSV data for the USDA foods and generate a zip file
     containing json files for all the foods and an index file that can
@@ -416,22 +510,28 @@ def convertUsdaFoods(csvDir: Union[str, Path],
     portions = loadPortions(csvDir)
 
     measures = generateMeasures(portions, csvmeasures)
+    conversions = generateFoodConversion(csvDir)
 
     legacyIds = loadLegacyIds(csvDir)
     csvFoods = loadFoods(csvDir, legacyIds)
 
-    sliced = sorted((f for f in csvFoods if f.foodType == foodType),
+    sliced = sorted((f for f in csvFoods if f.foodSource == foodSource),
                     key=lambda x: x.fid)
     foodFilter = {f.fid for f in sliced}
     nutFilter = {n for ni in nutrientInfos.nutrients for n in ni.usdaIds}
     nutrients = loadFoodNutrients(csvDir, foodFilter, nutFilter)
-    newFoods = generateFoods(sliced, measures, nutrientInfos, nutrients)
-    zipPath = os.path.join(userDir, f"{foodType.value}.zip")
+    newFoods = generateFoods(sliced,
+                             measures,
+                             conversions,
+                             nutrientInfos,
+                             nutrients)
+    zipPath = os.path.join(userDir, f"{foodSource.value}.zip")
     writeFoodsToZip(newFoods, zipPath)
-    indexPath = os.path.join(userDir, f"{foodType.value}.index")
+    indexPath = os.path.join(userDir, f"{foodSource.value}.index")
     with open(indexPath, "w") as f:
         for food in newFoods:
-            f.write(f"{food.sourceUID}|{food.name}\n")
+            legId = f"{food.legacyUID}|||" if food.legacyUID else ""
+            f.write(f"{legId}{food.uid}|{food.name}\n")
 
 
 def _fixOmegaFats(food: Food, foodNuts: list[CsvFoodNutrient]) -> bool:
