@@ -17,10 +17,13 @@ usdaFoodLoader.convertUsdaFoods(foodDir, nutInfo, FoodSource.SURVEY)
 """
 import contextlib
 import csv
+import difflib
 import os
 import zipfile
 
+from collections import defaultdict
 from collections import namedtuple
+from datetime import date
 from itertools import groupby
 from pathlib import Path
 from typing import Optional
@@ -52,6 +55,7 @@ PORTION_CSV = "food_portion.csv"
 FOOD_NUTRIENT_CSV = "food_nutrient.csv"
 CONVERSION_CSV = "food_calorie_conversion_factor.csv"
 FOOD_CONVERSION_CSV = "food_nutrient_conversion_factor.csv"
+BRANDED_CSV = "branded_food.csv"
 
 
 @contextlib.contextmanager
@@ -157,6 +161,19 @@ class CsvConversion(BaseModel):
     protein: Optional[float]
     fat: Optional[float]
     carb: Optional[float]
+
+
+class CsvBrandedFood(BaseModel):
+    """
+    The branded food extra information read from the branded_food.csv
+    file
+    """
+    fid: int
+    owner: str
+    brand: str
+    subbrand: str
+    measure: Optional[Measure]
+    discontinued: Optional[date]
 
 
 def loadLegacyIds(csvDir: Union[str, Path]) -> dict[int, int]:
@@ -335,7 +352,7 @@ def loadPortions(csvDir: Union[str, Path]) -> list[CsvPortion]:
         for row in reader:
             fid = int(row[1])
             seqNum = int(row[2]) if row[2] else 1
-            amount = float(row[3]) if row[3] else 1.0
+            amount = float(row[3]) if row[3] else 0.0
             measureId = int(row[4])
             desc = row[5]
             modifier = row[6]
@@ -431,19 +448,74 @@ def loadOneFoodNutrients(csvDir: Union[str, Path],
     return toRet
 
 
+def loadBrandedFoods(csvDir: Union[str, Path]) -> list[CsvBrandedFood]:
+    """
+    Loaded all the extra info for branded foods from the branded_food.csv
+    file.
+    """
+    toRet = list[CsvBrandedFood]()
+    csvFile = os.path.join(csvDir, BRANDED_CSV)
+
+    with _openCSV(csvFile) as reader:
+        for row in reader:
+            fid = int(row[0])
+            owner = row[1]
+            brand = row[2]
+            subbrand = row[3].capitalize()
+
+            measure = None
+            value = row[7]
+            unit = row[8].lower()
+            desc = row[9] or "labeled serving"
+            if value:
+                # Why does mg mean grams? who the f knows.
+                # According to the USDA docs, this field is either
+                # milliliters or grams. And that seems to be true even
+                # though the values are whack. mc seems to be used for
+                # grams in some cases but also ml. But I think all the
+                # ml cases are basically water, where g = ml, so for now
+                # we're just going to treat them the same.
+                if unit in ("g", "grm", "mg", "gm", "iu", "mc", ""):
+                    measure = Measure(grams=float(value),
+                                      amount=0.0,
+                                      description=desc)
+
+
+            discontinued = row[16]
+            if discontinued:
+                discontinued = date.fromisoformat(discontinued)
+            else:
+                discontinued = None
+
+            branded = CsvBrandedFood(fid=fid,
+                                     owner=owner,
+                                     brand=brand,
+                                     subbrand=subbrand,
+                                     measure=measure,
+                                     discontinued=discontinued)
+            toRet.append(branded)
+        return toRet
+
+
 def generateFoods(csvFoods: list[CsvFood],
                   measures: dict[int, list[Measure]],
                   conversion: dict[int, CsvConversion],
                   nutrientInfos: NutrientInfos,
-                  nutrients: list[CsvFoodNutrient]) -> list[Food]:
+                  nutrients: list[CsvFoodNutrient],
+                  brandInfo: list[CsvBrandedFood]) -> list[Food]:
     """
     Construct the final cronometer Food objects from the information
-    loaded from the USDA Csv Files.
+    loaded from the USDA CSV Files.
     """
     toRet = list[Food]()
 
+    brandDict = {b.fid : b for b in brandInfo}
+    foodNutDict = defaultdict(list)
+    for n in nutrients:
+        foodNutDict[n.fid].append(n)
+
     for csvFood in csvFoods:
-        foodNuts = [n for n in nutrients if n.fid == csvFood.fid]
+        foodNuts = foodNutDict[csvFood.fid]
 
         usdaIds = set()
         for f in foodNuts:
@@ -457,11 +529,38 @@ def generateFoods(csvFoods: list[CsvFood],
                 nutList.append(FoodNutrient(name=ni.name,
                                             amount=amount))
 
+        bi = brandDict.get(csvFood.fid)
+        name = csvFood.name
+
         m = measures.get(csvFood.fid) or list()
+
+        if bi and bi.measure:
+            m.append(bi.measure)
+
         if GRAM not in m:
             m.insert(0, GRAM)
         c = conversion.get(csvFood.fid)
-        food = Food(name=csvFood.name,
+
+        name = csvFood.name
+        if bi:
+            nameList = [name]
+            if bi.owner and bi.brand:
+                ratio = difflib.SequenceMatcher(None,
+                                                bi.owner.lower(),
+                                                bi.brand.lower()).ratio()
+                if ratio < .5:
+                    nameList.extend([bi.owner, bi.brand])
+                else:
+                    nameList.append(bi.brand)
+            elif bi.owner:
+                nameList.append(bi.owner)
+            elif bi.brand:
+                nameList.append(bi.brand)
+            if bi.subbrand:
+                nameList.append(bi.subbrand)
+            name = ",".join(nameList)
+
+        food = Food(name=name,
                     measures=m,
                     nutrients=nutList,
                     foodSource=csvFood.foodSource,
@@ -494,7 +593,8 @@ def writeFoodsToZip(foods: list[Food], zipPath: Union[str, Path]):
 
 def convertUsdaFoods(csvDir: Union[str, Path],
                      nutrientInfos: NutrientInfos,
-                     foodSource: FoodSource):
+                     foodSource: FoodSource,
+                     cutDate: Optional[date]=None):
     """
     Load the CSV data for the USDA foods and generate a zip file
     containing json files for all the foods and an index file that can
@@ -502,6 +602,10 @@ def convertUsdaFoods(csvDir: Union[str, Path],
 
     These files will be generated into the user's cronometer config
     area.
+
+    Cutdate is an optional value that will be used with Branded foods. If
+    a branded food has a discontinued date that is before cutDate it will not
+    be included in the final output.
     """
     userDir = toolbox.getUserDataDir()
     os.makedirs(userDir, exist_ok=True)
@@ -520,11 +624,23 @@ def convertUsdaFoods(csvDir: Union[str, Path],
     foodFilter = {f.fid for f in sliced}
     nutFilter = {n for ni in nutrientInfos.nutrients for n in ni.usdaIds}
     nutrients = loadFoodNutrients(csvDir, foodFilter, nutFilter)
+
+    if foodSource == FoodSource.BRANDED:
+        brandInfo = loadBrandedFoods(csvDir)
+    else:
+        brandInfo = list()
+
+    if cutDate:
+        foodsToCut = [bi.fid for bi in brandInfo if bi.discontinued and bi.discontinued < cutDate]
+        if foodsToCut:
+            sliced = [f for f in sliced if f.fid not in foodsToCut]
+
     newFoods = generateFoods(sliced,
                              measures,
                              conversions,
                              nutrientInfos,
-                             nutrients)
+                             nutrients,
+                             brandInfo)
     zipPath = os.path.join(userDir, f"{foodSource.value}.zip")
     writeFoodsToZip(newFoods, zipPath)
     indexPath = os.path.join(userDir, f"{foodSource.value}.index")

@@ -14,6 +14,9 @@ from cronometer.util import toolbox
 
 
 class Serving(BaseModel):
+    """
+    A user food serving.
+    """
     date: dtdate
     source: FoodSource
     food: int
@@ -24,6 +27,7 @@ class Serving(BaseModel):
 
 class LegacyServing(BaseXmlModel, tag="serving"):
     """
+    A user food serving from the legacy java cronometer.
     """
     dtime: datetime = attr("date", alias="date", exclude=True)
     meal: int = attr("meal", default=0)
@@ -38,6 +42,9 @@ class LegacyServing(BaseXmlModel, tag="serving"):
 
 
 class _LegacyServings(BaseXmlModel, tag="servings"):
+    """
+    XML Parsing wrapper for legacy XML data.
+    """
     servings: list[LegacyServing]
 
 
