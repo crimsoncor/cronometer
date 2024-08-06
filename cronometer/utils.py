@@ -18,4 +18,4 @@ def cleanNumber(number: Union[int, float], decimal:int=1):
     if isinstance(number, int) or number.is_integer():
         return str(int(number))
     fstr = f"{{number:.{decimal}f}}"
-    return fstr.format(number=number).rstrip("0")
+    return fstr.format(number=number).rstrip("0").rstrip(".")

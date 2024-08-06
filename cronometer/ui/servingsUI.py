@@ -52,6 +52,8 @@ class ServingModel(QtCore.QAbstractItemModel):
     headerData() and setHeaderData() to control the way the headers
     for your model are presented.
     """
+
+    # FIXME Quick hack to prevent index objects from going out of scope.
     TESTER = list()
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -71,9 +73,9 @@ class ServingModel(QtCore.QAbstractItemModel):
             meal = parent.internalPointer().mid
             mealServing = self.__userDay.getMealServings(meal)[row]
             servingIndex = self.__userDay.servings().index(mealServing)
-            return self.createIndex(row, column, _Food(servingIndex=servingIndex,
-                                                       meal=meal,
-                                                       row=row))
+            data = _Food(servingIndex=servingIndex, meal=meal, row=row)
+            self.TESTER.append(data)
+            return self.createIndex(row, column, data)
         else:
             data = self.__calculateRows()[row]
             return self.createIndex(row, column, data)
@@ -104,6 +106,13 @@ class ServingModel(QtCore.QAbstractItemModel):
     def columnCount(self, parent: QtCore.QModelIndex) -> int:
         return len(COLUMNS)
 
+    def headerData(self,
+                   section: int,
+                   orientation: QtCore.Qt.Orientation,
+                   role: QtCore.Qt.ItemDataRole=QtCore.Qt.DisplayRole) -> Any:
+        if role == QtCore.Qt.DisplayRole:
+            return COLUMNS[section]
+
     def data(self,
              index: QtCore.QModelIndex,
              role: QtCore.Qt.ItemDataRole=QtCore.Qt.DisplayRole) -> Any:
@@ -113,11 +122,16 @@ class ServingModel(QtCore.QAbstractItemModel):
         if self.__userDay is None:
             return None
 
+        col = COLUMNS[index.column()]
+
+        if role == QtCore.Qt.TextAlignmentRole:
+            if col in (COL_AMOUNT, COL_CALORIES):
+                return QtCore.Qt.AlignRight
+
         if role != QtCore.Qt.DisplayRole:
             return None
 
         idxData = index.internalPointer()
-        col = COLUMNS[index.column()]
         if isinstance(idxData, _Meal):
             if col == COL_FOOD:
                 return f"Meal {idxData.mid}"
