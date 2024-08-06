@@ -542,6 +542,13 @@ def generateFoods(csvFoods: list[CsvFood],
         c = conversion.get(csvFood.fid)
 
         name = csvFood.name
+        # Strip out this new text that was added to some food names.
+        name = name.replace(
+            " (Includes foods for USDA's Food Distribution Program)", "")
+        # Branded foods like to shout. No all caps here.
+        if name.isupper():
+            name = name.title()
+
         if bi:
             nameList = [name]
             if bi.owner and bi.brand:

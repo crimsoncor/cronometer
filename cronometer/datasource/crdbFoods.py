@@ -50,8 +50,8 @@ def getCRDBProxies() -> list[FoodProxy]:
     return readIndex(os.path.join(DATA_DIR, "crdb_005.index"), FoodSource.CRDB)
 
 
-def getCRDBFood(proxy: FoodProxy) -> Union[UserFood, UserRecipe]:
+def loadCRDBFood(index: int) -> Union[UserFood, UserRecipe]:
     """
     Get the food or receipt identified by the given proxy
     """
-    return _getFoodFromZip(f"{proxy.sourceUID:05}")
+    return _getFoodFromZip(f"{index:05}")

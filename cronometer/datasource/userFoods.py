@@ -12,33 +12,20 @@ from pydantic_xml import element
 import cronometer.foods.measure as measure
 
 from cronometer.foods.food import FoodNutrient
+from cronometer.foods.food import FoodProxy
 from cronometer.foods.food import FoodSource
+
+from .helpers import readIndex
 
 FOOD_INDEX = "foods.index"
 
 
-class FoodIndexEntry(BaseModel):
-    index: int
-    name: str
-
-
-def loadIndex(userDir: Path) -> list[FoodIndexEntry]:
+def getUserProxies(userDir: Path) -> list[FoodProxy]:
     """
     Load the index of user foods.
     """
-    toRet = list()
     indexFile = userDir / "foods" / FOOD_INDEX
-    try:
-        with open(indexFile) as f:
-            for line in f.readlines():
-                split = line.split("|")
-                if len(split) == 2:
-                    toRet.append(FoodIndexEntry(index=int(split[0]),
-                                                name=split[1].strip()))
-        toRet.sort(key=lambda x: x.index)
-    except FileNotFoundError:
-        pass
-    return toRet
+    return readIndex(indexFile, FoodSource.USER)
 
 
 class EntryType(Enum):
@@ -67,6 +54,27 @@ class UserFood(BaseXmlModel, tag="food"):
         if measure.GRAM not in self.measures:
             self.measures.insert(0, measure.GRAM)
 
+    # TODO remove when UserFood is converted to a Food.
+    def nutrientDict(self, grams: float):
+        """
+        Get a dictionary of each nutrient to its value.adjusted for the
+        number of grams of the food.
+
+        This is sparse in that it only has nutrients included in the
+        food, not the full set of nutrients defined in the nutrientInfos
+        """
+        mult = grams / 100
+        return {n.name : (n.amount * mult) for n in self.nutrients}
+
+    # TODO remove when UserFood is converted to a Food.
+    def getMeasureByName(self, name: str) -> measure.Measure:
+        """
+        Get the food's measure based on the name that is used.
+        """
+        if not name:
+            return measure.GRAM
+        return [m for m in self.measures if m.description == name][0]
+
 
 
 class RecipeServing(BaseXmlModel, tag="serving"):
@@ -85,7 +93,7 @@ class UserRecipe(UserFood, tag="recipe"):
                                             default_factory=list)
 
 
-def loadFood(userDir: Path, index: int) -> Optional[UserFood]:
+def loadUserFood(userDir: Path, index: int) -> Optional[UserFood]:
     """
     Load the user food with the given id.
     """

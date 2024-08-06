@@ -70,8 +70,17 @@ class NutrientInfo(BaseModel):
     """ The index for the nutrient in cronometer data"""
 
 
-class NutrientInfos(BaseModel):
+class NutrientInfos(BaseModel, frozen=True):
     nutrients: list[NutrientInfo]
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        object.__setattr__(self,
+                           "__nutrients",
+                           sorted(self.nutrients, key=lambda x: x.cronIndex))
+        object.__setattr__(self,
+                           "__nutIndexDict",
+                           {n.name : n.cronIndex for n in self.nutrients})
 
     def getByName(self, name: str) -> Optional[NutrientInfo]:
         """
@@ -86,10 +95,24 @@ class NutrientInfos(BaseModel):
         """
         Get the index for the given nutrient name
         """
-        try:
-            return next(n.cronIndex for n in self.nutrients if n.name == name)
-        except StopIteration:
-            raise KeyError(f"no nutrient named {name}")
+        return self.__nutIndexDict.get(name)
+
+    def ordering(self) -> list[str]:
+        """
+        Get the list of nutrients in order
+        """
+        return [n.name for n in self.nutrients]
+
+    def nutrientDictToTuple(self, nutrientDict: dict[str, float]) -> tuple:
+        """
+        Generate a tuple of nutrient values in the smae order as the list
+        of nutrients in this class.
+
+        nutrientDict should have a key that is the nutrient name and the
+        value of the amount of the nutrient. Zero will be inserted into the
+        tuple for any value that is not in the dict.
+        """
+        return tuple((nutrientDict.get(n.name, 0) for n in self.nutrients))
 
 
 def loadNutrientInfo() -> NutrientInfos:

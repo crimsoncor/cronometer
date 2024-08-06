@@ -10,6 +10,7 @@ from pydantic import field_validator
 from pydantic_xml import BaseXmlModel
 from pydantic_xml import attr
 
+from .measure import GRAM
 from .measure import Measure
 
 
@@ -103,6 +104,26 @@ class Food(BaseModel):
                 return
         fn = FoodNutrient(name=name, amount=amount)
         self.nutrients.append(fn)
+
+    def nutrientDict(self, grams: float):
+        """
+        Get a dictionary of each nutrient to its value.adjusted for the
+        number of grams of the food.
+
+        This is sparse in that it only has nutrients included in the
+        food, not the full set of nutrients defined in the nutrientInfos
+        """
+        mult = grams / 100
+        return {n.name : (n.amount * mult) for n in self.nutrients}
+
+    def getMeasureByName(self, name: str) -> Measure:
+        """
+        Get the food's measure based on the name that is used.
+        """
+        if not name:
+            return GRAM
+        return [m for m in self.measures if m.description == name][0]
+
 
     @field_validator('cCF', mode="before")
     @classmethod

@@ -50,19 +50,19 @@ def getLegacyIdMapping() -> dict[int, int]:
     return {p.legacyUID : p.sourceUID for p in proxies if p.legacyUID}
 
 
-def getUsdaFood(proxy: FoodProxy) -> Food:
+def loadUsdaFood(source: FoodSource, index: int) -> Food:
     """
     Get the food identified by the given proxy.
     """
-    if proxy.foodSource == FoodSource.DEPRECATED:
-        return getDeprecatedFood(proxy.sourceUID)
+    if source == FoodSource.DEPRECATED:
+        return loadDeprecatedFood(index)
     else:
         dataDir = toolbox.getUserDataDir()
-        zipFile = os.path.join(dataDir, f"{proxy.foodSource.value}.zip")
-        return _getFoodFromZip(zipFile, str(proxy.sourceUID))
+        zipFile = os.path.join(dataDir, f"{source.value}.zip")
+        return _getFoodFromZip(zipFile, str(index))
 
 
-def getDeprecatedFood(uid: int) -> Food:
+def loadDeprecatedFood(uid: int) -> Food:
     """
     Get a deprecated food from the data store that ships with
     cronometer.
