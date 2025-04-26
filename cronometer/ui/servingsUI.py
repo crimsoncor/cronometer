@@ -1,4 +1,5 @@
 """
+UI for displaying and editing all the servings from a UserDay
 """
 from typing import Any
 from typing import Optional

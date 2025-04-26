@@ -13,3 +13,4 @@ CRONoMeter.app
 *.pyc
 __pycache__
 ProfileOutput
+/typings/*

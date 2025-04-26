@@ -2,3 +2,4 @@ Qt.py
 pydantic
 pydantic-xml
 lxml
+sqlmodel

@@ -8,12 +8,13 @@ from pydantic import BaseModel
 from pydantic import computed_field
 from pydantic_xml import BaseXmlModel
 from pydantic_xml import attr
+from sqlmodel import SQLModel
 
 from cronometer.foods.food import FoodSource
 from cronometer.util import toolbox
 
 
-class Serving(BaseModel):
+class Serving(SQLModel):
     """
     A user food serving.
     """

@@ -29,7 +29,7 @@ class FoodSource(Enum):
     # User created foods
     USER = "user"
 
-    # Data from the USA
+    # Data from the USDA
     BRANDED = "branded_food"
     EXPERIMENTAL = "experimental_food"
     LEGACY = "sr_legacy_food"
