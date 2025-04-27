@@ -598,6 +598,8 @@ def writeFoodsToZip(foods: list[Food], zipPath: Union[str, Path]):
                 f.write(food.model_dump_json(indent=2).encode())
 
 
+# FIXME. Need a way to go through and prune duplicate branded foods. That CSV is
+#  a fucking mess.
 def convertUsdaFoods(csvDir: Union[str, Path],
                      nutrientInfos: NutrientInfos,
                      foodSource: FoodSource,

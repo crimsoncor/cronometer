@@ -84,6 +84,12 @@ class _FoodSourceWrapper(object):
         """
         return self.__proxies[index]
 
+    def getFoodProxies(self) -> list[FoodProxy]:
+        """
+        Get all the food proxies
+        """
+        return list(self.__proxies)
+
     def getFoodName(self, index: int) -> str:
         """
         Get the name of the food with the given index.
@@ -141,11 +147,17 @@ class FoodManager(QtCore.QObject):
         if self.__foodSources.pop(source, None):
             self.sourceRemoved.emit()
 
-    def getProxy(self, source: FoodSource, index: int) -> FoodProxy:
+    def getFoodProxy(self, source: FoodSource, index: int) -> FoodProxy:
         """
         Get a proxy by index
         """
         return self.__getSource(source).getFoodProxy(index)
+
+    def getFoodProxies(self, source: FoodSource) -> list[FoodProxy]:
+        """
+        Get all the proxies for the source
+        """
+        return self.__getSource(source).getFoodProxies()
 
     def getFood(self, source: FoodSource, index: int) -> Food:
         """

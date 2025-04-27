@@ -66,6 +66,8 @@ class FoodProxy(BaseModel):
     foodSource: FoodSource
     legacyUID: Optional[int] = None
 
+    model_config = {'frozen' : True}
+
 
 class Food(BaseModel):
     name: str
@@ -123,7 +125,6 @@ class Food(BaseModel):
         if not name:
             return GRAM
         return [m for m in self.measures if m.description == name][0]
-
 
     @field_validator('cCF', mode="before")
     @classmethod
