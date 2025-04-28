@@ -22,7 +22,7 @@ class FoodSource(Enum):
     foods. The CRDB database is not available online so it has been
     packaged and included with the python cronometer.
 
-    DEPRECATED foods are LEGACY  foods that are no longer part of the
+    DEPRECATED foods are LEGACY foods that are no longer part of the
     data set. The Python cronometer provides a zip file that contains
     these foods so that old files will still load.
     """
@@ -43,6 +43,47 @@ class FoodSource(Enum):
     # Datasets not longer available that are packaged with cronometer.
     DEPRECATED = "deprecated"
     CRDB = "crdb"
+
+    @staticmethod
+    def ordered() -> list:
+        """
+        Get a list of all the food sources in the order they'll be shown in
+        a UI.
+        """
+        return [FoodSource.SURVEY,
+                FoodSource.USER,
+                FoodSource.FOUNDATION,
+                FoodSource.LEGACY,
+                FoodSource.BRANDED,
+                FoodSource.CRDB,
+                FoodSource.DEPRECATED,
+                FoodSource.EXPERIMENTAL,
+                FoodSource.AGRICULTURAL_ACQUISITION,
+                FoodSource.SUB_SAMPLE,
+                FoodSource.MARKET_ACQUISITION,
+                FoodSource.SAMPLE]
+
+    @staticmethod
+    def usable():
+        """
+        A list of the food sources that are usable in this app.
+        """
+        return [FoodSource.SURVEY,
+                FoodSource.USER,
+                FoodSource.FOUNDATION,
+                FoodSource.LEGACY,
+                FoodSource.BRANDED,
+                FoodSource.CRDB,
+                FoodSource.DEPRECATED]
+
+    @staticmethod
+    def default():
+        """
+        A list of the food sources that are usable in this app.
+        """
+        return [FoodSource.SURVEY,
+                FoodSource.USER,
+                FoodSource.FOUNDATION]
 
 
 class FoodNutrient(BaseXmlModel, tag="nutrient"):

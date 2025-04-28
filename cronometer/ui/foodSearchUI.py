@@ -1,24 +1,38 @@
 """
 View for searching all loaded food databases for a particular food.
 """
+import os
 import re
 
 from typing import Any
+from typing import Optional
 
 from pydantic import BaseModel
+from Qt import QtCompat
 from Qt import QtCore
+from Qt import QtGui
 from Qt import QtWidgets
 
 from cronometer.core.foodManager import FoodManager
+from cronometer.foods.food import Food
 from cronometer.foods.food import FoodProxy
 from cronometer.foods.food import FoodSource
+from cronometer.qt import qtutils
+from cronometer.qt import style
 from cronometer.ui.ui_foodSearchWidget import Ui_FoodSearchWidget
 from cronometer.util.datautils import asPercentage
+from cronometer.util.datautils import formatAmount
 
+COL_SOURCE = "Source"
 COL_DESC = "Description"
 COL_PERC = "%"
 
-COLUMNS = [COL_DESC, COL_PERC]
+COLUMNS = [COL_SOURCE, COL_DESC, COL_PERC]
+
+# FIXME setup style based colors eventually
+ICON_COLOR = QtGui.QColorConstants.Svg.midnightblue
+
+THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 class _TableData(BaseModel):
@@ -31,11 +45,30 @@ class _TableData(BaseModel):
     consumptionStr: str
 
 
-class FoodSearchWidget(QtWidgets.QWidget, Ui_FoodSearchWidget):
+def setupIcon(button: QtWidgets.QAbstractButton, iconName: str):
+    """
+    Set the icon for the given button
+    """
+    iconPath = os.path.join(style.iconDirectory(), iconName)
+    icon = style.colorizeIcon(QtGui.QPixmap(iconPath), ICON_COLOR)
+    button.setIcon(icon)
+
+
+#FIXME Decide on generated code vs UI file loading.
+class FoodSearchWidget(Ui_FoodSearchWidget, QtWidgets.QWidget):
     """
     Extenstion of the generated UI code with an initialize method to set
     everything up.
     """
+    def __init__(self, parent=None):
+        """
+        Create a new widget.
+        """
+        super().__init__(parent)
+        QtCompat.loadUi(os.path.join(THIS_DIR, "foodSearchWidget.ui"), self)
+
+        self.__currentFood: Optional[Food] = None
+
     def initialize(self,
                    manager: FoodManager,
                    consumption: dict[tuple[FoodSource, int], int]):
@@ -44,18 +77,57 @@ class FoodSearchWidget(QtWidgets.QWidget, Ui_FoodSearchWidget):
 
         Most call this before trying to use the widget.
         """
-        self.setupUi(self)
         self.__manager = manager
         self.__model = LoadedFoodModel(manager, consumption)
 
         self.foodTableView.setSortingEnabled(True)
         self.foodTableView.setModel(self.__model)
-        self.foodTableView.sortByColumn(1, QtCore.Qt.DescendingOrder)
-        self.foodTableView.resizeColumnsToContents()
+        self.foodTableView.sortByColumn(2, QtCore.Qt.DescendingOrder)
+        self.foodTableView.doubleClicked.connect(self.__foodDoubleClicked)
+        header = self.foodTableView.horizontalHeader()
+        header.setSectionResizeMode(COLUMNS.index(COL_SOURCE),
+                                    QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(COLUMNS.index(COL_DESC),
+                                    QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(COLUMNS.index(COL_PERC),
+                                    QtWidgets.QHeaderView.ResizeToContents)
+        selectionModel = self.foodTableView.selectionModel()
+        selectionModel.selectionChanged.connect(self.__foodSelected)
         self.searchLineEdit.textChanged.connect(self.__startTimer)
         self.__timer = QtCore.QTimer()
         self.__timer.setInterval(80)
         self.__timer.timeout.connect(self.__filterTable)
+
+        setupIcon(self.addFoodButton, "Add.svg")
+        setupIcon(self.importFoodButton, "Import.svg")
+        setupIcon(self.editFoodButton, "Edit.svg")
+        setupIcon(self.dupFoodButton, "Copy.svg")
+        setupIcon(self.exportFoodButton, "Export.svg")
+        setupIcon(self.deleteFoodButton, "Delete.svg")
+
+        self.__sourceCheckboxes = dict[FoodSource, QtWidgets.QCheckBox]()
+        layout = self.sourcesWidget.layout()
+        for source in FoodSource.usable():
+            checkbox = QtWidgets.QCheckBox(source.name)
+            # FIXME replace this with user preference
+            checkbox.setChecked(source in FoodSource.default())
+            layout.addWidget(checkbox)
+            self.__sourceCheckboxes[source] = checkbox
+            checkbox.stateChanged.connect(self.__updateSources)
+        layout.addStretch()
+        self.__updateSources()
+
+        self.__nutrientValues = {
+            "Energy" : self.energyLabel,
+            "Protein" : self.proteinLabel,
+            "Carbs" : self.carbsLabel,
+            "Fiber" : self.fiberLabel,
+            "Sugars" : self.sugarLabel,
+            "Fat" : self.fatLabel,
+            "Water" : self.waterLabel,
+            "Saturated" : self.satFatLabel,
+            "Cholesterol" : self.cholLabel}
+        self.measureSpinBox.valueChanged.connect(self.__updateFoodNutrients)
 
     def __startTimer(self, _=None):
         """
@@ -64,12 +136,73 @@ class FoodSearchWidget(QtWidgets.QWidget, Ui_FoodSearchWidget):
         """
         self.__timer.start()
 
+    def __updateSources(self, _=None):
+        """
+        Update the list of sources that are being shown in the model
+        """
+        with qtutils.waitCursor():
+            sources = {s for (s, c) in self.__sourceCheckboxes.items()
+                       if c.isChecked()}
+            for s in sources:
+                if s not in self.__manager.sources():
+                    self.__manager.addSource(s)
+            self.__model.setSourcesToUse(sources)
+
     def __filterTable(self):
         """
         Update the table filter when the user types something
         """
         self.__timer.stop()
         self.__model.setFilterSting(self.searchLineEdit.text())
+
+    def __foodDoubleClicked(self, index: QtCore.QModelIndex):
+        """
+        Handle a food being double-clicked by showing the food/recipe
+        editor.
+        """
+        food = self.__model.getFood(index.row())
+
+    def __foodSelected(self,
+                       selected: QtCore.QItemSelection,
+                       _: QtCore.QItemSelection):
+        """
+        Handle a food being selected by updating the nutrients and servings
+        """
+        indexes = selected.indexes()
+        if not indexes:
+            self.foodDetailStack.setCurrentIndex(0)
+            self.__currentFood = None
+            return
+        self.foodDetailStack.setCurrentIndex(1)
+        food = self.__model.getFood(indexes[0].row())
+        self.__currentFood = food
+        measureNames = [m.displayName for m in food.measures]
+        with qtutils.blockSignals(self.measureComboBox):
+            self.measureComboBox.clear()
+            self.measureComboBox.addItems(measureNames)
+        with qtutils.blockSignals(self.measureSpinBox):
+            self.measureSpinBox.setValue(1)
+        self.foodNameLabel.setText(food.name)
+        self.__updateFoodNutrients()
+
+    def __updateFoodNutrients(self, _=None):
+        """
+        Update the nutrient values in the UI based on the selected food
+        and the selected serving measure
+        """
+        if not self.__currentFood:
+            return
+        nutInfos = self.__manager.nutrientInfos()
+
+        measureSize = self.measureSpinBox.value()
+        curIdx = self.measureComboBox.currentIndex()
+        measureGrams = self.__currentFood.measures[curIdx].grams
+        grams = measureGrams * measureSize
+        nutDict = self.__currentFood.nutrientDict(grams)
+
+        for nutName, label in self.__nutrientValues.items():
+            ni = nutInfos.getByName(nutName)
+            label.setText(formatAmount(nutDict.get(nutName, 0.), ni.unit.value, 15))
 
 
 class LoadedFoodModel(QtCore.QAbstractItemModel):
@@ -102,6 +235,15 @@ class LoadedFoodModel(QtCore.QAbstractItemModel):
 
         self.__manager.sourceRemoved.connect(self.__updateModelData)
         self.__manager.sourceAdded.connect(self.__updateModelData)
+
+    def setSourcesToUse(self, sources: set[FoodSource]):
+        """
+        Set the sources that should be shown in the table.
+
+        Pass an empty set to show all available sources
+        """
+        self.__sourcesToUse = sources
+        self.__updateModelData()
 
     def __updateModelData(self):
         """
@@ -224,12 +366,6 @@ class LoadedFoodModel(QtCore.QAbstractItemModel):
         if not terms:
             self.__filteredData = list(self.__data)
         else:
-
-            # searchTerm = r"(?=.*{})"
-            # regexTerm = ".*{}.*".format("".join((searchTerm.format(t) for t in terms)))
-            # regex = re.compile(regexTerm)
-
-            # self.__filteredData = [td for td in self.__data if regex.match(td.sortName)]
             start = self.__filteredData if refine else self.__data
             self.__filteredData = [td for td in start
                                    if all(t in td.sortName for t in terms)]
@@ -248,11 +384,12 @@ class LoadedFoodModel(QtCore.QAbstractItemModel):
                 return td.sortName
             elif col == COL_PERC:
                 return td.consumption
+            elif col == COL_SOURCE:
+                return td.proxy.foodSource.name
             return ""
 
         self.__filteredData.sort(
-            key=lambda x: sortVal(x),
-            reverse=self.__sortOrder == QtCore.Qt.DescendingOrder)
+            key=sortVal, reverse=self.__sortOrder == QtCore.Qt.DescendingOrder)
 
     def data(self,
              index: QtCore.QModelIndex,
@@ -271,3 +408,14 @@ class LoadedFoodModel(QtCore.QAbstractItemModel):
                 return td.proxy.name
             elif col == COL_PERC:
                 return td.consumptionStr
+            elif col == COL_SOURCE:
+                return td.proxy.foodSource.name
+        if role == QtCore.Qt.ToolTipRole:
+            if col == COL_DESC:
+                return td.proxy.name
+
+    def getFood(self, row: int) -> Food:
+        """
+        Get the food that is in the given row.
+        """
+        return self.__manager.getFoodFromProxy(self.__filteredData[row].proxy)

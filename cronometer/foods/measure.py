@@ -17,7 +17,7 @@ class Measure(BaseXmlModel, tag="measure"):
 
         This combines amount (if it is non-zero) with description
         """
-        if self.amount == 0.0:
+        if self.amount == 0.0 or self.amount == 1.0:
             return self.description
         return f"{self.amount:.4} {self.description}"
 

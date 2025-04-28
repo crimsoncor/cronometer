@@ -68,7 +68,7 @@ class FoodHistoryDB(object):
         if self.__engine:
             self.__engine = None
         sqlite_url = f"sqlite:///{self.__dbFile}"
-        return sqlmodel.create_engine(sqlite_url, echo=True)
+        return sqlmodel.create_engine(sqlite_url)
 
     def databaseExists(self) -> bool:
         """

@@ -194,7 +194,7 @@ class FoodManager(QtCore.QObject):
         """
         return self.__getSource(source).getFoodIndex(uid)
 
-    def nutrientInfo(self) -> NutrientInfos:
+    def nutrientInfos(self) -> NutrientInfos:
         """
         Get the Nutrient Info.
         """
