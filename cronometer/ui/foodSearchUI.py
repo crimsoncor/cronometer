@@ -128,6 +128,7 @@ class FoodSearchWidget(Ui_FoodSearchWidget, QtWidgets.QWidget):
             "Saturated" : self.satFatLabel,
             "Cholesterol" : self.cholLabel}
         self.measureSpinBox.valueChanged.connect(self.__updateFoodNutrients)
+        self.measureComboBox.currentIndexChanged.connect(self.__updateFoodNutrients)
 
     def __startTimer(self, _=None):
         """
