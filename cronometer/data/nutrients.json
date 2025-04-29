@@ -18,6 +18,23 @@
       "cronIndex": 0
     },
     {
+      "name": "Energy (Atwater Specific)",
+      "unit": "kcal",
+      "category": "General",
+      "rdi": 0.0,
+      "parentName": null,
+      "legacyIds": [
+        208.0
+      ],
+      "usdaIds": [
+        2048
+      ],
+      "sparse": false,
+      "track": true,
+      "dris": [],
+      "cronIndex": 0
+    },
+    {
       "name": "Protein",
       "unit": "g",
       "category": "General",

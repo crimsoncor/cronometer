@@ -4,6 +4,7 @@ View for searching all loaded food databases for a particular food.
 import os
 import re
 
+from datetime import date
 from typing import Any
 from typing import Optional
 
@@ -25,9 +26,10 @@ from cronometer.util.datautils import formatAmount
 
 COL_SOURCE = "Source"
 COL_DESC = "Description"
+COL_DATE = "Date"
 COL_PERC = "%"
 
-COLUMNS = [COL_SOURCE, COL_DESC, COL_PERC]
+COLUMNS = [COL_SOURCE, COL_DESC, COL_DATE, COL_PERC]
 
 # FIXME setup style based colors eventually
 ICON_COLOR = QtGui.QColorConstants.Svg.midnightblue
@@ -82,10 +84,13 @@ class FoodSearchWidget(Ui_FoodSearchWidget, QtWidgets.QWidget):
 
         self.foodTableView.setSortingEnabled(True)
         self.foodTableView.setModel(self.__model)
-        self.foodTableView.sortByColumn(2, QtCore.Qt.DescendingOrder)
+        self.foodTableView.sortByColumn(COLUMNS.index(COL_PERC),
+                                        QtCore.Qt.DescendingOrder)
         self.foodTableView.doubleClicked.connect(self.__foodDoubleClicked)
         header = self.foodTableView.horizontalHeader()
         header.setSectionResizeMode(COLUMNS.index(COL_SOURCE),
+                                    QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(COLUMNS.index(COL_DATE),
                                     QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(COLUMNS.index(COL_DESC),
                                     QtWidgets.QHeaderView.Stretch)
@@ -387,6 +392,8 @@ class LoadedFoodModel(QtCore.QAbstractItemModel):
                 return td.consumption
             elif col == COL_SOURCE:
                 return td.proxy.foodSource.name
+            elif col == COL_DATE:
+                return td.proxy.publishedDate or date.today()
             return ""
 
         self.__filteredData.sort(
@@ -411,6 +418,8 @@ class LoadedFoodModel(QtCore.QAbstractItemModel):
                 return td.consumptionStr
             elif col == COL_SOURCE:
                 return td.proxy.foodSource.name
+            elif col == COL_DATE:
+                return str(td.proxy.publishedDate) if td.proxy.publishedDate else ""
         if role == QtCore.Qt.ToolTipRole:
             if col == COL_DESC:
                 return td.proxy.name

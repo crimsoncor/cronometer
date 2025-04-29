@@ -1,6 +1,7 @@
 """
 
 """
+from datetime import date
 from enum import Enum
 from typing import Any
 from typing import Optional
@@ -106,6 +107,7 @@ class FoodProxy(BaseModel):
     sourceUID: int
     foodSource: FoodSource
     legacyUID: Optional[int] = None
+    publishedDate: Optional[date]
 
     model_config = {'frozen' : True}
 
@@ -123,6 +125,7 @@ class Food(BaseModel):
     comments: list[str]
     measures: list[Measure]
     nutrients: list[FoodNutrient]
+    publishedDate: Optional[date] = None
 
     foodSource: FoodSource
 

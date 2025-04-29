@@ -22,5 +22,4 @@ class Measure(BaseXmlModel, tag="measure"):
         return f"{self.amount:.4} {self.description}"
 
 
-
 GRAM = Measure(grams=1.0, amount=1.0, description="g")

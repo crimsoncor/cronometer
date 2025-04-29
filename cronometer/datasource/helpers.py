@@ -1,13 +1,14 @@
 
 import re
 
+from datetime import date
 from pathlib import Path
 from typing import Union
 
 from cronometer.foods.food import FoodProxy
 from cronometer.foods.food import FoodSource
 
-INDEX_PAT = re.compile(r"(?:(\d+)\|\|\|)?(\d+)\|(.*)")
+INDEX_PAT = re.compile(r"(?:(\d+)\|\|\|)?(?:(\d\d\d\d-\d\d-\d\d)\|\|\|\|)?(\d+)\|(.*)")
 
 
 def readIndex(path: Union[str, Path],
@@ -20,11 +21,13 @@ def readIndex(path: Union[str, Path],
         for line in f.readlines():
             res = INDEX_PAT.match(line)
             legacyId = int(res.group(1)) if res.group(1) else None
-            uid = int(res.group(2))
-            name = res.group(3)
+            pd = date.fromisoformat(res.group(2)) if res.group(2) else None
+            uid = int(res.group(3))
+            name = res.group(4)
             proxy = FoodProxy(name=name,
                               sourceUID=int(uid),
                               foodSource=foodSource,
-                              legacyUID=legacyId)
+                              legacyUID=legacyId,
+                              publishedDate=pd)
             toRet.append(proxy)
     return toRet

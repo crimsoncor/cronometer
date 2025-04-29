@@ -19,11 +19,13 @@ import contextlib
 import csv
 import difflib
 import os
+import re
 import zipfile
 
 from collections import defaultdict
 from collections import namedtuple
 from datetime import date
+from datetime import datetime
 from itertools import groupby
 from pathlib import Path
 from typing import Optional
@@ -57,6 +59,8 @@ CONVERSION_CSV = "food_calorie_conversion_factor.csv"
 FOOD_CONVERSION_CSV = "food_nutrient_conversion_factor.csv"
 BRANDED_CSV = "branded_food.csv"
 
+ALL_DIGITS = re.compile(r"^\d+$")
+
 
 @contextlib.contextmanager
 def _openCSV(csvFile: Union[Path, str]):
@@ -70,6 +74,19 @@ def _openCSV(csvFile: Union[Path, str]):
         yield reader
 
 
+def _parseDate(value: str) -> date:
+    """
+    Parse a CSV value into a date object.
+
+    Good job putting inconsistently formatted data into the data set, USDA.
+    Really loving it.
+    """
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        return datetime.strptime(value, "%m/%d/%Y").date()
+
+
 class CsvFood(BaseModel):
     """
     A food entry read from the food.csv file.
@@ -80,6 +97,7 @@ class CsvFood(BaseModel):
     fid: int
     legacyId: Optional[int] = None
     name: str
+    publishedDate: date
 
 
 class CsvNutrient(BaseModel):
@@ -319,10 +337,13 @@ def loadFoods(csvDir: Union[str, Path],
             fsrc = FoodSource(row[1])
             name = row[2]
             legacyId = None if fsrc != FoodSource.LEGACY else legacyIdMap[fid]
+
+            pubDate = _parseDate(row[4])
             food = CsvFood(foodSource=fsrc,
                            fid=fid,
                            name=name,
-                           legacyId=legacyId)
+                           legacyId=legacyId,
+                           publishedDate=pubDate)
             toRet.append(food)
     return toRet
 
@@ -355,6 +376,11 @@ def loadPortions(csvDir: Union[str, Path]) -> list[CsvPortion]:
             amount = float(row[3]) if row[3] else 0.0
             measureId = int(row[4])
             desc = row[5]
+            # Strip of leading one in portions
+            if desc.startswith("1 "):
+                desc = desc[2:]
+                if amount == 0.0:
+                    amount = 1.0
             modifier = row[6]
             grams = float(row[7])
             portion = CsvPortion(fid=fid,
@@ -389,12 +415,14 @@ def generateMeasures(portions: list[CsvPortion],
                 descList.append(measureDict[por.measureId])
             if por.description:
                 descList.append(por.description)
-            if por.modifier:
+            if por.modifier and not ALL_DIGITS.match(por.modifier):
                 descList.append(por.modifier)
             measure = Measure(grams=por.grams,
                               amount=por.amount,
                               description=" ".join(descList))
             measureList.append(measure)
+            if measure.description.startswith("1 "):
+                print(por)
         toRet[fid] = measureList
 
     return toRet
@@ -459,9 +487,9 @@ def loadBrandedFoods(csvDir: Union[str, Path]) -> list[CsvBrandedFood]:
     with _openCSV(csvFile) as reader:
         for row in reader:
             fid = int(row[0])
-            owner = row[1]
-            brand = row[2]
-            subbrand = row[3].capitalize()
+            owner = row[1].strip()
+            brand = row[2].strip()
+            subbrand = row[3].capitalize().strip()
 
             measure = None
             value = row[7]
@@ -476,8 +504,12 @@ def loadBrandedFoods(csvDir: Union[str, Path]) -> list[CsvBrandedFood]:
                 # ml cases are basically water, where g = ml, so for now
                 # we're just going to treat them the same.
                 if unit in ("g", "grm", "mg", "gm", "iu", "mc", ""):
+                    amount = 0.0
+                    if desc.startswith("1 "):
+                        desc = desc[2:]
+                        amount = 1.0
                     measure = Measure(grams=float(value),
-                                      amount=0.0,
+                                      amount=amount,
                                       description=desc)
 
 
@@ -507,12 +539,14 @@ def generateFoods(csvFoods: list[CsvFood],
     Construct the final cronometer Food objects from the information
     loaded from the USDA CSV Files.
     """
-    toRet = list[Food]()
+    toRet = list[tuple[Food, date]]()
 
     brandDict = {b.fid : b for b in brandInfo}
     foodNutDict = defaultdict(list)
     for n in nutrients:
         foodNutDict[n.fid].append(n)
+
+    pubDateForFood = dict[str, date]()
 
     for csvFood in csvFoods:
         foodNuts = foodNutDict[csvFood.fid]
@@ -563,25 +597,32 @@ def generateFoods(csvFoods: list[CsvFood],
                 nameList.append(bi.owner)
             elif bi.brand:
                 nameList.append(bi.brand)
+
             if bi.subbrand:
                 nameList.append(bi.subbrand)
+
             name = ",".join(nameList)
 
-        food = Food(name=name,
-                    measures=m,
-                    nutrients=nutList,
-                    foodSource=csvFood.foodSource,
-                    uid=csvFood.fid,
-                    legacyUID=csvFood.legacyId,
-                    # If None, pydantic will use default value
-                    pCF=c.protein if c else None,
-                    lCF=c.fat if c else None,
-                    cCF=c.carb if c else None,
-                    comments=[])
-        if _fixOmegaFats(food, foodNuts):
-            food.nutrients.sort(key=lambda x: nutrientInfos.indexOfName(x.name))
-        toRet.append(food)
-    return toRet
+        currentPubDate = pubDateForFood.get(name)
+        if not currentPubDate or currentPubDate < csvFood.publishedDate:
+            food = Food(name=name,
+                        measures=m,
+                        nutrients=nutList,
+                        foodSource=csvFood.foodSource,
+                        uid=csvFood.fid,
+                        legacyUID=csvFood.legacyId,
+                        # If None, pydantic will use default value
+                        pCF=c.protein if c else None,
+                        lCF=c.fat if c else None,
+                        cCF=c.carb if c else None,
+                        comments=[],
+                        publishedDate=csvFood.publishedDate)
+            if any((_fixOmegaFats(food, foodNuts), _fixCalories(food))):
+                food.nutrients.sort(key=lambda x: nutrientInfos.indexOfName(x.name))
+            toRet.append((food, csvFood.publishedDate))
+            pubDateForFood[name] = csvFood.publishedDate
+    toRetFinal = [f for f, d in toRet if d == pubDateForFood[f.name]]
+    return toRetFinal
 
 
 def writeFoodsToZip(foods: list[Food], zipPath: Union[str, Path]):
@@ -598,8 +639,6 @@ def writeFoodsToZip(foods: list[Food], zipPath: Union[str, Path]):
                 f.write(food.model_dump_json(indent=2).encode())
 
 
-# FIXME. Need a way to go through and prune duplicate branded foods. That CSV is
-#  a fucking mess.
 def convertUsdaFoods(csvDir: Union[str, Path],
                      nutrientInfos: NutrientInfos,
                      foodSource: FoodSource,
@@ -656,7 +695,26 @@ def convertUsdaFoods(csvDir: Union[str, Path],
     with open(indexPath, "w") as f:
         for food in newFoods:
             legId = f"{food.legacyUID}|||" if food.legacyUID else ""
-            f.write(f"{legId}{food.uid}|{food.name}\n")
+            pubDate = f"{food.publishedDate}||||" if food.publishedDate else ""
+            f.write(f"{legId}{pubDate}{food.uid}|{food.name}\n")
+
+
+def _fixCalories(food: Food) -> bool:
+    """
+    This will swap in the Atwater Specific Calorie information in cases where
+    the basic Energy value is missing. This is because for newer foods, they have
+    dropped filling nutId 1008 and instead populate 2047 and 2048 with the
+    General and Specific Calorie values. Using Specific because it is probably
+    slightly more accurate. But not using it by default (cases where 1008 is set)
+    because that would likely throw off legacy files.
+    """
+    energy = food.nutrientValueByName("Energy")
+    if energy == 0.0:
+        specificEnergy = food.nutrientValueByName("Energy (Atwater Specific)")
+        if specificEnergy != 0.0:
+            food.setNutrientByName("Energy", specificEnergy)
+            return True
+    return False
 
 
 def _fixOmegaFats(food: Food, foodNuts: list[CsvFoodNutrient]) -> bool:

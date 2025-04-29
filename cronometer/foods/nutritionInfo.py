@@ -5,6 +5,7 @@ recommended daily intakes.
 import os
 
 from enum import Enum
+from functools import cached_property
 from typing import Optional
 
 from pydantic import BaseModel
@@ -73,15 +74,6 @@ class NutrientInfo(BaseModel):
 class NutrientInfos(BaseModel, frozen=True):
     nutrients: list[NutrientInfo]
 
-    def __init__(self, **data):
-        super().__init__(**data)
-        object.__setattr__(self,
-                           "__nutrients",
-                           sorted(self.nutrients, key=lambda x: x.cronIndex))
-        object.__setattr__(self,
-                           "__nutIndexDict",
-                           {n.name : n.cronIndex for n in self.nutrients})
-
     def getByName(self, name: str) -> Optional[NutrientInfo]:
         """
         Get the nutrient info by name
@@ -91,11 +83,18 @@ class NutrientInfos(BaseModel, frozen=True):
         except StopIteration:
             return None
 
+    @cached_property
+    def _nutIndexDict(self) -> dict[str, int]:
+        """
+        A dictionary of nutrient name to cronometer index
+        """
+        return {n.name : n.cronIndex for n in self.nutrients}
+
     def indexOfName(self, name: str) -> int:
         """
         Get the index for the given nutrient name
         """
-        return self.__nutIndexDict.get(name)
+        return self._nutIndexDict[name]
 
     def ordering(self) -> list[str]:
         """
