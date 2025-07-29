@@ -5,6 +5,7 @@ import os
 
 from collections import defaultdict
 from datetime import date as dtdate
+from typing import Optional
 
 import sqlmodel
 
@@ -82,6 +83,12 @@ class FoodHistoryDB(object):
         """
         self.__engine = self.__connect()
 
+    def _engine(self) -> Optional[Engine]:
+        """
+        Access the underlying db engine
+        """
+        return self.__engine
+
     def addServings(self, servings: list[Serving]):
         """
         Bulk add a large number of servings.
@@ -99,6 +106,7 @@ class FoodHistoryDB(object):
             for eachDay in servingsByDate.values():
                 session.add_all(servingsToSql(eachDay))
             session.commit()
+
 
     def updateDay(self, servings: list[Serving]):
         """
@@ -151,3 +159,18 @@ class FoodHistoryDB(object):
                 toRet[(source, food)] = count
 
         return toRet
+
+
+class _FoodHistoryDBDev(FoodHistoryDB):
+    """
+    Extension of the food history db class for performing testing actions
+    """
+    def clearServings(self):
+        """
+        Delete all the serving information in the current db
+        """
+        stmt = sqlmodel.select(SQLServing)
+        with sqlmodel.Session(self._engine()) as session:
+            for each in session.exec(stmt):
+                session.delete(each)
+            session.commit()

@@ -35,7 +35,7 @@ class User(BaseModel):
     A user in the cronometer system.
     """
     username: str
-    settings: list[LegacyGeneralSetting]
+    settings: list[LegacyUserSetting]
 
     # Pydantic private members.
     _birthDate: date
@@ -51,8 +51,7 @@ class User(BaseModel):
         year = self.getInt(BD_YEAR) or 1944
         month = self.getInt(BD_MONTH) or 6
         day = self.getInt(BD_DAY) or 6
-        print(f"{year}-{month:02}-{day:02}")
-        self._BIRTHDAY = date.fromisoformat(f"{year}-{month:02}-{day:02}")
+        self._birthday = date.fromisoformat(f"{year}-{month:02}-{day:02}")
 
     def getValue(self, name: str) -> Optional[str]:
         """

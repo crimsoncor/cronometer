@@ -2,7 +2,6 @@
 View for searching all loaded food databases for a particular food.
 """
 import os
-import re
 
 from datetime import date
 from typing import Any
@@ -19,7 +18,7 @@ from cronometer.foods.food import Food
 from cronometer.foods.food import FoodProxy
 from cronometer.foods.food import FoodSource
 from cronometer.qt import qtutils
-from cronometer.qt import style
+from cronometer.qt.style import setupIcon
 from cronometer.ui.ui_foodSearchWidget import Ui_FoodSearchWidget
 from cronometer.util.datautils import asPercentage
 from cronometer.util.datautils import formatAmount
@@ -30,9 +29,6 @@ COL_DATE = "Date"
 COL_PERC = "%"
 
 COLUMNS = [COL_SOURCE, COL_DESC, COL_DATE, COL_PERC]
-
-# FIXME setup style based colors eventually
-ICON_COLOR = QtGui.QColorConstants.Svg.midnightblue
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -47,19 +43,10 @@ class _TableData(BaseModel):
     consumptionStr: str
 
 
-def setupIcon(button: QtWidgets.QAbstractButton, iconName: str):
-    """
-    Set the icon for the given button
-    """
-    iconPath = os.path.join(style.iconDirectory(), iconName)
-    icon = style.colorizeIcon(QtGui.QPixmap(iconPath), ICON_COLOR)
-    button.setIcon(icon)
-
-
 #FIXME Decide on generated code vs UI file loading.
 class FoodSearchWidget(Ui_FoodSearchWidget, QtWidgets.QWidget):
     """
-    Extenstion of the generated UI code with an initialize method to set
+    Extension of the generated UI code with an initialize method to set
     everything up.
     """
     def __init__(self, parent=None):
@@ -77,7 +64,7 @@ class FoodSearchWidget(Ui_FoodSearchWidget, QtWidgets.QWidget):
         """
         Setup the ui to be usable.
 
-        Most call this before trying to use the widget.
+        Must call this before trying to use the widget.
         """
         self.__manager = manager
         self.__model = LoadedFoodModel(manager, consumption)

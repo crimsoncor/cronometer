@@ -18,10 +18,7 @@ COL_AMOUNT = "Amount"
 COL_MEASURE = "Measure"
 COL_CALORIES = "Calories"
 
-COLUMNS = [COL_FOOD,
-           COL_AMOUNT,
-           COL_MEASURE,
-           COL_CALORIES]
+COLUMNS = [COL_FOOD, COL_AMOUNT, COL_MEASURE, COL_CALORIES]
 
 
 class _Food(BaseModel):
@@ -46,16 +43,9 @@ class ServingModel(QtCore.QAbstractItemModel):
     available to a View.
     """
 
-    """
-    To enable editing in your model, you must also implement
-    setData(), and reimplement flags() to ensure that
-    ItemIsEditable is returned. You can also reimplement
-    headerData() and setHeaderData() to control the way the headers
-    for your model are presented.
-    """
-
     # FIXME Quick hack to prevent index objects from going out of scope.
     TESTER = list()
+
     def __init__(self, parent=None):
         super().__init__(parent)
 
@@ -66,7 +56,8 @@ class ServingModel(QtCore.QAbstractItemModel):
         self.__userDay = userDay
         self.endResetModel()
 
-    def index(self, row: int, column: int, parent: QtCore.QModelIndex) -> QtCore.QModelIndex:
+    def index(self, row: int, column: int,
+              parent: QtCore.QModelIndex) -> QtCore.QModelIndex:
         if not self.hasIndex(row, column, parent) or not self.__userDay:
             return QtCore.QModelIndex()
 
@@ -110,13 +101,13 @@ class ServingModel(QtCore.QAbstractItemModel):
     def headerData(self,
                    section: int,
                    orientation: QtCore.Qt.Orientation,
-                   role: QtCore.Qt.ItemDataRole=QtCore.Qt.DisplayRole) -> Any:
+                   role: QtCore.Qt.ItemDataRole = QtCore.Qt.DisplayRole) -> Any:
         if role == QtCore.Qt.DisplayRole:
             return COLUMNS[section]
 
     def data(self,
              index: QtCore.QModelIndex,
-             role: QtCore.Qt.ItemDataRole=QtCore.Qt.DisplayRole) -> Any:
+             role: QtCore.Qt.ItemDataRole = QtCore.Qt.DisplayRole) -> Any:
         if not index.isValid():
             return None
 
@@ -148,7 +139,8 @@ class ServingModel(QtCore.QAbstractItemModel):
                 return self.__userDay.getFood(idxData.servingIndex).name
             elif col == COL_CALORIES:
                 # FIXME hard-coded calories index here. do better.
-                return cleanNumber(self.__userDay.getNutrition(idxData.servingIndex)[0])
+                return cleanNumber(self.__userDay.getNutrition(
+                    idxData.servingIndex)[0])
             elif col == COL_AMOUNT:
                 return cleanNumber(self.__userDay.getAmount(idxData.servingIndex),
                                    decimal=2)
@@ -163,13 +155,10 @@ class ServingModel(QtCore.QAbstractItemModel):
         if self.__userDay:
             for i, e in enumerate(self.__userDay.servings()):
                 if e.meal == 0:
-                    rows.append(_Food(servingIndex=i,
-                                      meal=0,
-                                      row=row))
+                    rows.append(_Food(servingIndex=i, meal=0, row=row))
                     row += 1
                 elif e.meal not in meals:
-                    rows.append(_Meal(mid=e.meal,
-                                      row=row))
+                    rows.append(_Meal(mid=e.meal, row=row))
                     meals.add(e.meal)
                     row += 1
         self.TESTER.extend(rows)
@@ -183,10 +172,8 @@ class ServingModel(QtCore.QAbstractItemModel):
             row = 0
             for i, e in enumerate(self.__userDay.servings()):
                 if e.meal == meal:
-                    rows.append(_Food(servingIndex=i,
-                                      meal=meal,
-                                      row=row))
-                    row +=1
+                    rows.append(_Food(servingIndex=i, meal=meal, row=row))
+                    row += 1
         self.TESTER.extend(rows)
         return rows
 

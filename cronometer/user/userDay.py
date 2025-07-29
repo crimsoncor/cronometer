@@ -74,7 +74,7 @@ class UserDay(object):
         meals = set[int]()
         self.__servingsByMeal = defaultdict[int, list[Serving]](list)
 
-        nutInfo = self.__manager.nutrientInfo()
+        nutInfo = self.__manager.nutrientInfos()
 
         mealTuples = defaultdict[int, list](list)
         self.__servingTuples = list[tuple]()

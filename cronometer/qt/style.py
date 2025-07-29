@@ -4,8 +4,12 @@ Utilities for working with qt styles.
 import os
 
 from Qt import QtGui
+from Qt import QtWidgets
 
 THIS_DIR = os.path.abspath(os.path.dirname(__file__))
+
+# FIXME setup style based colors eventually
+ICON_COLOR = QtGui.QColorConstants.Svg.midnightblue
 
 
 def iconDirectory() -> str:
@@ -13,6 +17,15 @@ def iconDirectory() -> str:
     Get the path to the module directory that holds the icons.
     """
     return os.path.join(THIS_DIR, "icons")
+
+
+def setupIcon(button: QtWidgets.QAbstractButton, iconName: str):
+    """
+    Set the icon for the given button
+    """
+    iconPath = os.path.join(iconDirectory(), iconName)
+    icon = colorizeIcon(QtGui.QPixmap(iconPath), ICON_COLOR)
+    button.setIcon(icon)
 
 
 def colorizePixmap(pixmap: QtGui.QPixmap, color: QtGui.QColor) -> QtGui.QPixmap:
