@@ -19,6 +19,8 @@ from .helpers import readIndex
 
 FOOD_INDEX = "foods.index"
 
+FULL_RECIPE = "full recipe"
+
 
 def getUserProxies(userDir: Path) -> list[FoodProxy]:
     """
@@ -45,12 +47,13 @@ class UserFood(BaseXmlModel, tag="food"):
     lCF: float = attr(tag="lcf", default=9.0)
 
     comments: list[str] = element(tag="comments", default_factory=list)
-    measures: list[measure.Measure] = element(tag="measure",
-                                              default_factory=list)
-    nutrients: list[FoodNutrient] = element(tag="nutrient",
-                                            default_factory=list)
+    measures: list[measure.Measure] = element(tag="measure", default_factory=list)
+    nutrients: list[FoodNutrient] = element(tag="nutrient", default_factory=list)
 
     def model_post_init(self, __context):
+        """
+        Add extra data after the class is initialized
+        """
         if measure.GRAM not in self.measures:
             self.measures.insert(0, measure.GRAM)
 
@@ -76,10 +79,8 @@ class UserFood(BaseXmlModel, tag="food"):
         return [m for m in self.measures if m.description == name][0]
 
 
-
 class RecipeServing(BaseXmlModel, tag="serving"):
-    date: datetime = attr(default_factory=datetime.now,
-                          exclude=True)
+    date: datetime = attr(default_factory=datetime.now, exclude=True)
     source: str = attr()
     grams: float = attr()
     food: int = attr()
@@ -87,10 +88,27 @@ class RecipeServing(BaseXmlModel, tag="serving"):
     measure: Optional[str] = attr(default=None)
 
 
+#FIXME Need to add way for recipes to calculate nutrients
 class UserRecipe(UserFood, tag="recipe"):
     entryType: EntryType = attr(default=EntryType.RECIPE)
-    servings: list[RecipeServing] = element(tag="serving",
-                                            default_factory=list)
+    servings: list[RecipeServing] = element(tag="serving", default_factory=list)
+
+    def model_post_init(self, __context):
+        """
+        Add extra data after the class is initialized
+        """
+        if not any(m.description == FULL_RECIPE for m in self.measures):
+            self.measures.insert(
+                0,
+                measure.Measure(grams=self.getTotalGrams(),
+                                amount=1.0,
+                                description=FULL_RECIPE))
+
+    def getTotalGrams(self) -> float:
+        """
+        Get the total grams of all the ingredients in the recipe
+        """
+        return sum((s.grams for s in self.servings))
 
 
 def loadUserFood(userDir: Path, index: int) -> Optional[UserFood]:
